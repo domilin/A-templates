@@ -1,0 +1,22 @@
+/*----------import module----------*/
+@import "bourbon/bourbon";
+@import "normalize/normalize";
+@import "public/public";
+
+/*----------my style----------*/
+$fontSize: 'Microsoft YaHei';
+
+body {
+    background: #fff;
+    color: #fff;
+}
+
+.animate{
+    margin: -8rem 0 0 -10rem;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background: #bbbbbb;
+    height: 16rem;
+    width: 20rem;
+}

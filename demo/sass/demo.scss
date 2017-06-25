@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+@import "normalize";
+@import "compass/css3";
+//@import "compass/support";
+
+//$supported-browsers: chrome;
+
+/*!base style*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th {
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, p, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        @extend a;
+    }
+}
+
+em, i {
+    font-style: normal;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "\20";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+/*!myself*/
+@function rem($num) {
+    @return ($num / 29) + rem;
+}
+
+$my: 'Microsoft YaHei';
+
+body {
+    background: #fff;
+    color: #fff;
+    @include inline-block;
+
+    @include border-corner-radius(top, left, 5px);
+
+    @include border-radius(5px);
+
+    @include opacity(0.5);
+}
+
+/*!popup*/
+.ui_box {
+    display: none;
+    z-index: 9999;
+}
+
+.ui_box, .ui_box .ui_mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.ui_box .ui_mask {
+    background: #000;
+    opacity: 0.7;
+}
+
+.ui_content {
+    margin-top: -7.3rem;
+    padding: 0.25rem 0;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    height: 14.6rem;
+    width: 100%;
+}
+
+.btn_close {
+    margin: 0 0 0 -1.5rem;
+    position: absolute;
+    left: 50%;
+    top: -3.5rem;
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
+}
