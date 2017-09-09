@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="<%= keywords %>">
+    <meta name="description" content="<%= description %>">
+    <meta name="author" content="">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="
+          width=device-width,
+          initial-scale=1.0,
+          minimum-scale=1.0,
+          maximum-scale=1.0,
+          user-scalable=no"/>
+    <title><%= title %></title>
+
+    <!--[if lt IE 9]>
+    <script src="https://common.8864.com/web/js/css3-mediaqueries.js"></script>
+    <script src="https://common.8864.com/web/js/html5shiv.min.js"></script>
+    <script src="https://common.8864.com/web/js/browser-tips.js"></script>
+    <![endif]-->
+
+    <!-- plugin -->
+    <% for (var i = 0 in plugin) { %>
+    <link href="<%= plugin[i] %>" rel="stylesheet">
+    <% } %>
+
+    <!-- private -->
+    <% for (var i = 0 in private) { %>
+    <link href="<%= private[i] %>" rel="stylesheet">
+    <% } %>
+
+</head>
+<body>
+<div class="page-loading active" id="pageLoading">
+    <div class="page-loading-center">
+        <div class="page-loading-center-absolute">
+            <div class="round round-one"></div>
+            <div class="round round-two"></div>
+            <div class="round round-three"></div>
+        </div>
+    </div>
+</div>
+
+<!-- public header -->
+<script type="text/javascript" src="https://www.8864.com/web_header.html"></script>

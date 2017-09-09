@@ -1,3 +1,11 @@
+/.idea/*
+/*/.idea/*
+/*/node_modules/*
+/*/dist/*
+/*/build/*
+/*/rev/*
+
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

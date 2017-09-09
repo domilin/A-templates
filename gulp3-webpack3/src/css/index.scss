@@ -1,0 +1,17 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2017-08-29 19:30
+ * Description：index
+ */
+@import "../../libs/scss/util-pc";
+@import "index/baner";
+
+body {
+    background: url("../img/demo.jpg");
+
+    p {
+        color: red;
+        font-size: 24px;
+        line-height: 48px;
+    }
+}

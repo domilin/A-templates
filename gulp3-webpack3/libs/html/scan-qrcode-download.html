@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>DOWNLOAD</title>
+    <script>
+        window.onload = function () {
+            var iosUrl = 'javascript:alert(\'敬请期待\')'
+            var androidUrl = 'javascript:alert(\'敬请期待\')'
+
+            download(iosUrl, androidUrl)
+        }
+
+        function download (urlIos, urlAndroid) {
+            var userAgent = window.navigator.userAgent.toLowerCase()
+            if (userAgent.indexOf('micromessenger') > 0) {
+                $('#micromsgTips').show()
+            } else {
+                if (userAgent.indexOf('iphone') > 0 || userAgent.indexOf('ipad') > 0) {
+                    window.location.href = urlIos
+                } else if (userAgent.indexOf('android') > 0) {
+                    window.location.href = urlAndroid
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<style>
+    .micromsg-tips {
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.85);
+        display: none;
+        height: 100%;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    .micromsg-tips-text {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: url("../img/weixinmsg-tips-text.png") no-repeat;
+        background-size: 100% auto;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<div class="micromsg-tips" id="micromsgTips">
+    <div class="micromsg-tips-text"></div>
+</div>
+</body>
+</html>

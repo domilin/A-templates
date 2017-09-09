@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+/**
+ * Author：zhoushuanglong
+ * Time：2017-09-05 20:09
+ * Description：mobile util
+ */
+@import "normalize";
+@import "public";
+@import "rem";
+
+/* micromsg-tips */
+.micromsg-tips {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+}
+
+.micromsg-tips-text {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url("../img/weixinmsg-tips-text.png") no-repeat;
+    background-size: 100% auto;
+    height: 100%;
+    width: 100%;
+}
+
+/* videovplay */
+.videoplay-mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9998;
+}
+
+.videoplay-wrap {
+    position: fixed;
+    left: 0;
+    top: 30%;
+    display: none;
+    width: 100%;
+    z-index: 9999;
+
+    video {
+        width: 100%;
+    }
+
+    a {
+        position: absolute;
+        right: rem(5);
+        top: rem(-35);
+        background: rgba(255, 255, 255, 0.8);
+        display: block;
+        height: rem(32);
+        width: rem(32);
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "extends": "standard",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-array-constructor": 0,
+    "no-trailing-spaces": 0
+  },
+  "globals": {
+    "CONFIG": true,
+    "$": true,
+    "wx": true,
+    "ejs": true,
+    "Swiper": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "worker": true,
+    "mocha": true,
+    "phantomjs": true,
+    "serviceworker": true
+  }
+}
