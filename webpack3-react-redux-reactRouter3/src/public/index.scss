@@ -6,29 +6,37 @@
 @import "../../libs/scss/normalize";
 @import "../../libs/scss/public";
 
-html, body, #root, .ant-layout {
+html,
+body,
+#root,
+.ant-layout {
     height: 100%;
 }
 
-/*webkit滚动条样式*/
+/* webkit滚动条样式 */
 * {
     &::-webkit-scrollbar {
         width: 3px;
         height: 3px;
     }
+
     &::-webkit-scrollbar-button {
         background-color: #f0f0f0;
     }
+
     &::-webkit-scrollbar-track {
         background: #f0f0f0;
     }
+
     &::-webkit-scrollbar-track-piece {
         background: #f0f0f0;
     }
+
     &::-webkit-scrollbar-thumb {
         background: #bbb;
         border-radius: 5px;
     }
+
     &::-webkit-scrollbar-corner {
         background: #f0f0f0;
     }

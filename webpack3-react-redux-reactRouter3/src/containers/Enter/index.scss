@@ -5,16 +5,9 @@
  */
 
 .game-wrap {
-    background: #ececec;
     flex: 1;
     height: 100%;
-    padding: 24px;
-    &>div{
-        background: #fff;
-        flex: 1;
-        height: 100%;
-        padding: 24px;
-    }
+
     .game-item {
         float: left;
         margin-right: 20px;
@@ -28,6 +21,7 @@
         transition: all 0.2s ease-out 0s;
         color: #fff;
         font-size: 20px;
+
         &:hover {
             box-shadow: rgba(0, 0, 0, 0.2) 0 5px 20px 0;
             transform: translateY(-5px);

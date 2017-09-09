@@ -11,21 +11,11 @@ import loginInfo from './loginInfo'
 import gameListInfo from './gameListInfo'
 import navigationArr from './navigationArr'
 import breadcrumbArr from './breadcrumbArr'
-import goodsListArr from './goodsListArr'
-import columnListArr from './columnListArr'
-import column from './column.reducers'
-import recommend from './recommend.reducers'
-import order from './order.reducers'
 const reducers = Object.assign({
     loginInfo,
     gameListInfo,
     navigationArr,
     breadcrumbArr,
-    goodsListArr,
-    columnListArr,
-    column,
-    recommend,
-    order,
     routing: routerReducer
 })
 

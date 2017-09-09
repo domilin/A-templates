@@ -7,8 +7,10 @@
 .shop-menu {
     border-right: 0;
     height: 100%;
+
     .ant-menu-item {
         position: relative;
+
         a {
             position: absolute;
             left: 0;
@@ -46,15 +48,17 @@
     overflow: hidden;
     text-align: center;
     transition: all 0.1s ease-in 0s;
+
     img {
         display: inline-block;
-        margin-top: (64-36)/2+px;
+        margin-top: ((64 - 36)/2)+px;
         height: 36px;
     }
 }
 
 .shop-func {
     float: right;
+
     button {
         margin-left: 10px;
     }

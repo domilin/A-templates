@@ -22,7 +22,10 @@
         "react/jsx-uses-vars": "error"
     },
     "globals": {
-        "CONFIG": true
+        "CONFIG": true,
+        "$": true,
+        "wx": true,
+        "Swiper": true
     },
     "env": {
         "browser": true,

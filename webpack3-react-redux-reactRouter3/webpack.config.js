@@ -1,6 +1,7 @@
 const {resolve} = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
 const ROOT_PATH = resolve(__dirname)
@@ -64,6 +65,7 @@ module.exports = {
         jquery: '$'
     },
     plugins: [
+        new StyleLintPlugin(),
         new webpack.ProvidePlugin({
             $: 'zepto' || 'jquery',
             zepto: 'zepto',

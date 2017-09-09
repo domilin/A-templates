@@ -26,16 +26,18 @@ class Enter extends Component {
 
     render () {
         const This = this
-        return <div className="game-wrap"><div>{this.props.gameListInfo.map(function (d, i) {
-            return <a
-                className="game-item"
-                key={d.lk_game_id}
-                onClick={() => {
-                    This.goGoodsListPage(d.lk_game_id)
-                    This.props.actions.navigation(menuData[1].children[0].key, menuData[1].key)
-                    This.props.actions.breadcrumb([menuData[1].text, menuData[1].children[0].text])
-                } }>{d.lk_game_name}</a>
-        })}</div></div>
+        return <div className="game-wrap clearfix">
+            {this.props.gameListInfo.map(function (d, i) {
+                return <a
+                    className="game-item"
+                    key={d.lk_game_id}
+                    onClick={() => {
+                        This.goGoodsListPage(d.lk_game_id)
+                        This.props.actions.navigation(menuData[1].children[0].key, menuData[1].key)
+                        This.props.actions.breadcrumb([menuData[1].text, menuData[1].children[0].text])
+                    }}>{d.lk_game_name}</a>
+            })}
+        </div>
     }
 }
 

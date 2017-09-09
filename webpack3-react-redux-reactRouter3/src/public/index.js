@@ -7,7 +7,6 @@
 import axios from 'axios'
 import { hashHistory } from 'react-router'
 import { message } from 'antd'
-import $ from 'jquery'
 
 export const axiosAjax = (type, url, params, fn) => {
     axios({
@@ -48,10 +47,4 @@ export const axiosFormData = (type, url, params, fn) => {
     }).catch(function (error) {
         message.error(error)
     })
-}
-export const gameIdCookie = () => {
-    if (!$.cookie('gameId')) {
-        hashHistory.push('/')
-        message.warning('请选择游戏！')
-    }
 }

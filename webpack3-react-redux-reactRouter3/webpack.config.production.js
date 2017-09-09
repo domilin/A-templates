@@ -1,6 +1,7 @@
 const {resolve} = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
@@ -70,7 +71,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 8192,
-                            name: 'img/[name]-[chunkhash:8].[ext]?'
+                            name: 'img/[name]-[hash:8].[ext]?'
                         }
                     }
                 ]
@@ -85,6 +86,7 @@ module.exports = {
         jquery: '$'
     },
     plugins: [
+        new StyleLintPlugin(),
         new UglifyJSPlugin({
             compress: {
                 warnings: false,

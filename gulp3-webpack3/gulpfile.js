@@ -40,7 +40,7 @@ gulp.task('htmlInclude', () => {
         .pipe(connect.reload())
 })
 // 压缩HTML
-gulp.task('minifyHtml', () => {
+gulp.task('minifyHtml', ['ejsInclude', 'htmlInclude'], () => {
     const options = {
         removeComments: true,
         collapseWhitespace: true,
@@ -68,7 +68,7 @@ gulp.task('lintCss', () => {
         }))
 })
 // sass处理
-gulp.task('sass', () => {
+gulp.task('sass', ['lintCss'], () => {
     return gulp.src('src/css/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -89,7 +89,7 @@ gulp.task('postcss', ['sass'], () => {
         .pipe(connect.reload())
 })
 // 压缩css并添加hash值
-gulp.task('minifyCss', () => {
+gulp.task('minifyCss', ['lintCss', 'sass', 'postcss'], () => {
     return gulp.src('dist/css/*.css')
         .pipe(rev())
         .pipe(cleanCSS({compatibility: 'ie8'}))
@@ -107,7 +107,7 @@ gulp.task('buildJs', () => {
         .pipe(connect.reload())
 })
 // 添加js的hash值
-gulp.task('hashJs', () => {
+gulp.task('hashJs', ['buildJs'], () => {
     return gulp.src(['dist/js/*.js'])
         .pipe(rev())
         .pipe(gulp.dest('build/js'))
@@ -213,7 +213,7 @@ gulp.task('pcCopyBuild', () => {
 gulp.task('connect', () => {
     connect.server({
         root: ['dist'],
-        port: 8080,
+        port: 8000,
         livereload: true,
         middleware: (connect, opt) => {
             return [
