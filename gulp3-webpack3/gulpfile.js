@@ -213,7 +213,7 @@ gulp.task('pcCopyBuild', () => {
 gulp.task('connect', () => {
     connect.server({
         root: ['dist'],
-        port: 8000,
+        port: 8080,
         livereload: true,
         middleware: (connect, opt) => {
             return [
