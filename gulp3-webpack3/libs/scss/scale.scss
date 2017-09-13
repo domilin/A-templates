@@ -1,0 +1,4 @@
+/* pc width 1920 rem caculate */
+@function em($value) {
+    @return ($value / 1920) * 100%;
+}

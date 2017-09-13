@@ -116,11 +116,22 @@ gulp.task('hashJs', ['buildJs'], () => {
 })
 
 /* ----------------------------------------处理img---------------------------------------- */
-// 拷贝图片
+// 拷贝图片至dist
 gulp.task('copyImg', () => {
-    return gulp.src(['src/img/*', 'src/img/*/*.*'])
+    return gulp.src(['src/img/*', 'src/img/*/*.*', 'src/img-not-minify/*', 'src/img-not-minify/*/*.*'])
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload())
+})
+// 拷贝不用压缩图片至build
+gulp.task('minifyImg', () => {
+    return gulp.src(['src/img-not-minify/*', 'src/img-not-minify/*/*.*'])
+        .pipe(imagemin({
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true,
+            multipass: true
+        }))
+        .pipe(gulp.dest('build/img'))
 })
 // 压缩图片并添加img hash值
 gulp.task('minifyHashImg', () => {
@@ -213,7 +224,7 @@ gulp.task('pcCopyBuild', () => {
 gulp.task('connect', () => {
     connect.server({
         root: ['dist'],
-        port: 8080,
+        port: 8010,
         livereload: true,
         middleware: (connect, opt) => {
             return [
@@ -250,7 +261,7 @@ gulp.task('devM', (callback) => runSequence(
 gulp.task('buildM', (callback) => runSequence(
     'cleanBuildRev',
     ['lintCss', 'mCopyBuild'],
-    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'sass'],
+    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg', 'sass'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],
     ['revHtmlCss', 'revCssImg'],
@@ -270,7 +281,7 @@ gulp.task('devPc', (callback) => runSequence(
 gulp.task('buildPc', (callback) => runSequence(
     'cleanBuildRev',
     ['lintCss', 'pcCopyBuild'],
-    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'sass'],
+    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg', 'sass'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],
     ['revHtmlCss', 'revCssImg'],
