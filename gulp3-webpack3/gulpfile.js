@@ -122,7 +122,7 @@ gulp.task('copyImg', () => {
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload())
 })
-// 拷贝不用压缩图片至build
+// 拷贝不用加hash值图片至build
 gulp.task('minifyImg', () => {
     return gulp.src(['src/img-not-minify/*', 'src/img-not-minify/*/*.*'])
         .pipe(imagemin({
