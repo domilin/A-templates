@@ -161,13 +161,14 @@ gulp.task('cleanBuildRev', () => {
 })
 
 /* ----------------------------------------替换hash文件及路径---------------------------------------- */
-const publicPath = '../'
+const publicPath = '..'
 
 gulp.task('revHtmlCss', () => { // 替换html中的css为hash css
     return gulp.src(['rev/css/*.json', 'build/html/*.html'])
         .pipe(revCollector({
             replaceReved: true,
             dirReplacements: {
+                '../../css': publicPath + '/css',
                 '../css': publicPath + '/css'
             }
         }))
@@ -178,6 +179,7 @@ gulp.task('revHtmlJs', () => { // 替换html中的js为hash js
         .pipe(revCollector({
             replaceReved: true,
             dirReplacements: {
+                '../../js': publicPath + '/js',
                 '../js': publicPath + '/js'
             }
         }))
@@ -188,6 +190,7 @@ gulp.task('revHtmlImg', () => { // 替换html中的img为hash img
         .pipe(revCollector({
             replaceReved: true,
             dirReplacements: {
+                '../../img': publicPath + '/img',
                 '../img': publicPath + '/img'
             }
         }))
@@ -198,6 +201,7 @@ gulp.task('revCssImg', () => { // 替换css中的img为hash img
         .pipe(revCollector({
             replaceReved: true,
             dirReplacements: {
+                '../../img': publicPath + '/img',
                 '../img': publicPath + '/img'
             }
         }))
@@ -224,7 +228,7 @@ gulp.task('pcCopyBuild', () => {
 gulp.task('connect', () => {
     connect.server({
         root: ['dist'],
-        port: 8010,
+        port: 8020,
         livereload: true,
         middleware: (connect, opt) => {
             return [
