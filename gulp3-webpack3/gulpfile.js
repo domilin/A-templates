@@ -118,13 +118,13 @@ gulp.task('hashJs', ['buildJs'], () => {
 /* ----------------------------------------处理img---------------------------------------- */
 // 拷贝图片至dist
 gulp.task('copyImg', () => {
-    return gulp.src(['src/img/*', 'src/img/*/*.*', 'src/img-not-minify/*', 'src/img-not-minify/*/*.*'])
+    return gulp.src(['src/img/*', 'src/img/*/*.*', 'src/img-not-hash/*', 'src/img-not-hash/*/*.*'])
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload())
 })
 // 拷贝不用加hash值图片至build
 gulp.task('minifyImg', () => {
-    return gulp.src(['src/img-not-minify/*', 'src/img-not-minify/*/*.*'])
+    return gulp.src(['src/img-not-hash/*', 'src/img-not-hash/*/*.*'])
         .pipe(imagemin({
             optimizationLevel: 5,
             progressive: true,
