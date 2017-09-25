@@ -4,7 +4,7 @@
  * Description：js demo banner
  */
 
-import { isPc } from '../../../libs/js/util'
+import { isPc } from '../../../libs/js/utils'
 
 export default () => {
     if (isPc()) {

@@ -4,7 +4,7 @@
  * Description：js demo index
  */
 
-import { goToMobile } from '../../libs/js/util'
+import { goToMobile } from '../../libs/js/utils'
 import banner from './index/banner'
 
 $(function () {
