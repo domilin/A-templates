@@ -4,11 +4,10 @@
  * Description：js demo index
  */
 
-import { goToMobile, imgPop } from '../../libs/js/utils'
+import { imgPop } from '../../libs/js/utils'
 import banner from './index/banner'
 
 $(function () {
-    goToMobile('http://www.baidu.com')
     imgPop('#imgPopBtn')
     banner()
 })

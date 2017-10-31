@@ -196,6 +196,21 @@ const gameDownloadM = (ele) => {
 }
 
 /**
+ * JS：lkLoadingHtml('#imgLoading')
+ */
+const lkLoadingHtml = (ele) => {
+    return `<div class="lk-loading active" id="imgLoading">
+        <div class="lk-loading-center">
+            <div class="lk-loading-center-absolute">
+                <div class="round round-one"></div>
+                <div class="round round-two"></div>
+                <div class="round round-three"></div>
+            </div>
+        </div>
+    </div>`
+}
+
+/**
  * HTML：<a id="videoPlayBtn" data-src=""></a>
  * JS：videoPlay('#videoPlayBtn')
  */
@@ -203,7 +218,7 @@ const videoPlay = (ele, playFn, closeFn) => {
     if ($('#videoplayWrap').length === 0) {
         const videoplayHtml = `<div class="videoplay-wrap" id="videoplayWrap">
         <video src="" controls="controls" autoplay="autoplay">您的浏览器不支持该视频</video>
-            <a class="videoplay-close" id="videoplayClose"><img src="../img/videoplay-close.png"></a>
+            <a class="videoplay-close" id="videoplayClose"><img src="../img/videoplay-close.png" /></a>
         </div><div class="videoplay-mask" id="videoplayMask"></div>`
 
         $('body').append(videoplayHtml)
@@ -246,6 +261,95 @@ const videoPlay = (ele, playFn, closeFn) => {
     })
 }
 
+/**
+ * HTML：<a id="imgPopBtn" data-src=""></a>
+ * JS：imgPop('#imgPopBtn') imgPop('#imgPopBtn', widthSelf, heightSelf)
+ */
+const imgPop = (ele, widthSelf, heightSelf) => {
+    if ($('#imgPop').length === 0) {
+        const imgPopHtml = `<div class="img-pop" id="imgPop">
+    <div class="img-mask" id="imgMask"></div>
+    ${lkLoadingHtml('#imgLoading')}
+    <div class="img-con-wrap" id="imgConWrap">
+    <div class="img-con-scroll"><img id="imgCon" src=""/></div>
+    <a class="img-pop-close" id="imgPopClose">×</a>
+    </div></div>`
+        $('body').append(imgPopHtml)
+    }
+
+    const $imgPop = $('#imgPop')
+    const $imgCon = $('#imgCon')
+    const $imgLoading = $('#imgLoading')
+    const $imgConWrap = $('#imgConWrap')
+
+    $(document).on('click', ele, function () {
+        $imgPop.show()
+
+        const src = $(this).data('src')
+        let imgTemp = new Image()
+        imgTemp.src = src
+        imgTemp.onload = function () {
+            $imgCon.attr('src', src)
+
+            const winWidth = parseInt($(window).width())
+            const winHeight = parseInt($(window).height())
+
+            if (isPc()) {
+                const imgRealWidth = imgTemp.width > (winWidth - 500) ? (winWidth - 500) : imgTemp.width
+                if (widthSelf) {
+                    $imgConWrap.css({
+                        marginLeft: -widthSelf / 2,
+                        width: widthSelf
+                    })
+                } else {
+                    $imgConWrap.css({
+                        marginLeft: -imgRealWidth / 2,
+                        width: imgRealWidth
+                    })
+                }
+            }
+
+            const conHeight = parseInt($imgConWrap.height())
+            let closeBtnPos
+
+            if (isPc()) {
+                closeBtnPos = 80
+            } else {
+                closeBtnPos = 130 / 24 * parseInt($('html').css('font-size'))
+            }
+
+            const conRealHeight = conHeight > (winHeight - closeBtnPos) ? (winHeight - closeBtnPos) : conHeight
+            if (heightSelf) {
+                $imgConWrap.css({
+                    marginTop: -heightSelf / 2,
+                    height: heightSelf
+                })
+            } else {
+                $imgConWrap.css({
+                    marginTop: -conRealHeight / 2,
+                    height: conRealHeight
+                })
+            }
+
+            $imgLoading.hide()
+            $imgConWrap.css('visibility', 'inherit')
+        }
+    })
+
+    $(document).off('click', '#imgPopClose')
+    $(document).on('click', '#imgPopClose', function () {
+        $imgPop.hide()
+        $imgCon.attr('src', '')
+        $imgConWrap.css({
+            marginLeft: 'auto',
+            marginTop: 'auto',
+            height: 'auto',
+            width: 'auto',
+            visibility: 'hidden'
+        })
+    })
+}
+
 export {
     remRootFontSize,
     browserTips,
@@ -260,5 +364,7 @@ export {
     getQueryString,
     goToMobile,
     gameDownloadM,
-    videoPlay
+    lkLoadingHtml,
+    videoPlay,
+    imgPop
 }

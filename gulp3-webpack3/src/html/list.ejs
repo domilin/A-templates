@@ -1,15 +1,20 @@
-<%- include('../../libs/html/util-pc/header', {
+<%- include('../../libs/html/util-m/header', {
 title: 'demo',
 description: 'demo',
 keywords: 'demo',
 plugin: ['http://common.8864.com/web/plugins/swiper/swiper.min.css'],
-private: ['../css/index.css']
+private: ['../css/list.css']
 }) %>
 
 <p style="font-size: 200px"> this is list demo </p>
-<img src="../img/bg-part-0.jpg" alt="">
+<img src="../img/demo.jpg" alt="">
+<a id="imgPopBtn"
+   data-src="http://img.zcool.cn/community/014a7459f29538a801202b0c0a0c55.jpg@1280w_1l_2o_100sh.jpg">图片弹出</a>
 
-<%- include('../../libs/html/util-pc/footer', {
+<div id="lkFooterM"></div>
+
+<%- include('../../libs/html/util-m/footer', {
 plugin: ['https://common.8864.com/web/plugins/swiper/swiper.jquery.min.js'],
-private: ['../js/index.js']
+private: ['../js/list.js', '../js/jquery.lk.js'],
+statistics: ''
 }) %>
