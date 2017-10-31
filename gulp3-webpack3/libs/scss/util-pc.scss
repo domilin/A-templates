@@ -13,6 +13,10 @@
     display: none;
 }
 
+a[title='站长统计'] {
+    display: none;
+}
+
 /* videovplay */
 .videoplay-mask {
     position: fixed;
