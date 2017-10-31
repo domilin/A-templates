@@ -9,5 +9,6 @@ import banner from './index/banner'
 
 $(function () {
     imgPop('#imgPopBtn')
+    imgPop('#imgPopBtnTwo')
     banner()
 })

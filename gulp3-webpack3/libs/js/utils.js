@@ -338,7 +338,17 @@ const imgPop = (ele, widthSelf, heightSelf) => {
 
     $(document).off('click', '#imgPopClose')
     $(document).on('click', '#imgPopClose', function () {
+        imgPopClose()
+    })
+
+    $(document).off('click', '#imgLoading')
+    $(document).on('click', '#imgLoading', function () {
+        imgPopClose()
+    })
+
+    function imgPopClose () {
         $imgPop.hide()
+        $imgLoading.show()
         $imgCon.attr('src', '')
         $imgConWrap.css({
             marginLeft: 'auto',
@@ -347,7 +357,7 @@ const imgPop = (ele, widthSelf, heightSelf) => {
             width: 'auto',
             visibility: 'hidden'
         })
-    })
+    }
 }
 
 export {
