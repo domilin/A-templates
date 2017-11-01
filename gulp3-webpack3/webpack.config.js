@@ -85,6 +85,8 @@ module.exports = {
                 'BABEL_ENV': JSON.stringify('production')
             }
         }),
+
+        // 打包单独不需要提取公共部分JS时注释掉此插件，如：jquery.lk.js
         new webpack.optimize.CommonsChunkPlugin({
             filename: 'js/[name].js',
             names: ['vendors']
