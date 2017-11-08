@@ -82,7 +82,7 @@ const isIos = () => {
     return flag
 }
 
-const isandroid = () => {
+const isAndroid = () => {
     let flag = false
     if (userAgent.indexOf('android') > 0) {
         flag = true
@@ -187,7 +187,7 @@ const gameDownloadM = (ele) => {
         } else {
             if (isIos()) {
                 window.location.href = $this.data('ios')
-            } else if (isandroid()) {
+            } else if (isAndroid()) {
                 window.location.href = $this.data('android')
             }
         }
@@ -365,7 +365,7 @@ export {
     browserTips,
     isPc,
     isIos,
-    isandroid,
+    isAndroid,
     isWeixin,
     isPad,
     ieVersion,
