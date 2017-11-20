@@ -1,0 +1,30 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2017/8/10
+ * Description：enter scss
+ */
+
+.game-wrap {
+    flex: 1;
+    height: 100%;
+
+    .game-item {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background: url("./img/game-bg.jpg") no-repeat center;
+        border-radius: 5px;
+        display: block;
+        height: 130px;
+        width: 280px;
+        transition: all 0.2s ease-out 0s;
+        color: #fff;
+        font-size: 20px;
+
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.2) 0 5px 20px 0;
+            transform: translateY(-5px);
+        }
+    }
+}

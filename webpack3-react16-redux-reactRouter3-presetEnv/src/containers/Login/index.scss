@@ -1,0 +1,30 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2017/7/31
+ * Description：login
+ */
+
+.login-wrap {
+    padding-top: 160px;
+    background: #d9e0e7;
+    height: 100%;
+
+    .login-content {
+        background: #2d353c;
+        padding: 40px;
+
+        .login-main {
+            margin: 0 auto;
+            width: 400px;
+
+            .ant-input,
+            .ant-btn {
+                height: 40px;
+            }
+
+            .login-form-button {
+                width: 100%;
+            }
+        }
+    }
+}
