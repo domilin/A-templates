@@ -74,7 +74,7 @@ module.exports = {
             'window.jQuery': 'jquery'
         }),
         new HtmlWebpackPlugin({
-            title: '微信商城',
+            title: 'demo',
             filepath: DIST_PATH,
             template: resolve(TEM_PATH, 'index.html'),
             chunks: ['index'],
@@ -87,13 +87,11 @@ module.exports = {
         hot: true,
         historyApiFallback: true,
         contentBase: ROOT_PATH,
-        // host: '192.168.84.4',
-        host: '127.0.0.1',
+        host: '192.168.84.43',
         port: '3002',
         proxy: [{
-            context: ['/*'],
-            // target: 'http://test.lk.8864.com',
-            target: 'http://wechatstore.linekong.com',
+            context: ['/demo'],
+            target: 'http://test.lk.8864.com',
             changeOrigin: true,
             ws: true,
             secure: false

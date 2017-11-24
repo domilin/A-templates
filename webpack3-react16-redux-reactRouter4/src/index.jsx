@@ -7,9 +7,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router, hashHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
-import $ from 'jquery'
+import createHistory from 'history/createBrowserHistory'
+import { ConnectedRouter } from 'react-router-redux'
 
 import 'babel-polyfill'
 import rootRoutes from './routes'
@@ -17,11 +16,11 @@ import store from './store/index'
 
 import './public/index.scss'
 
-const history = syncHistoryWithStore(hashHistory, store)
+const history = createHistory()
 
 $('body').append('<div id="root"></div>')
 render(<Provider store={store}>
-    <Router history={history}>
+    <ConnectedRouter history={history}>
         {rootRoutes}
-    </Router>
+    </ConnectedRouter>
 </Provider>, document.getElementById('root'))

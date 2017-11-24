@@ -5,19 +5,14 @@
  */
 
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import { Route, Switch } from 'react-router'
 
-const rootRoutes = <div>
+const rootRoutes = <Switch>
     <Route path="/" getComponent={(nextState, callback) => {
         require.ensure([], (require) => {
             callback(null, require('../containers/Main').default)
         }, 'Main')
     }}>
-        <IndexRoute getComponent={(nextState, callback) => {
-            require.ensure([], (require) => {
-                callback(null, require('../containers/Enter').default)
-            }, 'Enter')
-        }}/>
         <Route path='/enter' getComponent={(nextState, callback) => {
             require.ensure([], (require) => {
                 callback(null, require('../containers/Enter').default)
@@ -29,6 +24,6 @@ const rootRoutes = <div>
             callback(null, require('../containers/Login').default)
         }, 'Login')
     }}/>
-</div>
+</Switch>
 
 export default rootRoutes

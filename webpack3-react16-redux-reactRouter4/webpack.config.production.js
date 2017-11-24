@@ -125,9 +125,9 @@ module.exports = {
             names: ['vendors']
         }),
         new HtmlWebpackPlugin({
-            title: '微信商城',
-            keywords: '微信商城',
-            description: '微信商城',
+            title: 'demo',
+            keywords: 'demo',
+            description: 'demo',
             filepath: DIST_PATH,
             template: resolve(TEM_PATH, 'index.html'),
             chunks: ['index', 'vendors'],

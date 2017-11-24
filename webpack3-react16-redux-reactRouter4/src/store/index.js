@@ -4,15 +4,17 @@
  * Description：store
  */
 
-import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
+import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
-import { hashHistory } from 'react-router'
 
 import rootReducer from '../reducers/index'
 
-const router = routerMiddleware(hashHistory)
+const history = createHistory()
+const router = routerMiddleware(history)
+
 export default createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk, router)
 ))
