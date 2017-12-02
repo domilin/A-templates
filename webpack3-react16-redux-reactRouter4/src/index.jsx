@@ -11,7 +11,7 @@ import createHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 
 import 'babel-polyfill'
-import rootRoutes from './routes'
+import rootRoutes from './routers'
 import store from './store/index'
 
 import './public/index.scss'
@@ -21,6 +21,8 @@ const history = createHistory()
 $('body').append('<div id="root"></div>')
 render(<Provider store={store}>
     <ConnectedRouter history={history}>
-        {rootRoutes}
+        <div>
+            {rootRoutes}
+        </div>
     </ConnectedRouter>
 </Provider>, document.getElementById('root'))

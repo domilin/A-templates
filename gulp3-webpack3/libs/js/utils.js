@@ -360,6 +360,103 @@ const imgPop = (ele, widthSelf, heightSelf) => {
     }
 }
 
+/**
+ * HTML：<div class="news-list" id="newsList"></div>
+ * CSS：.news-list .paging-nav a{};   .news-list .paging-list li a(span)/time{};   .news-list .paging-btn a{};
+ * JS：paging({
+        element: '#newsList',
+        url: 'http://opm.8864.com/api/website/getallcolumncontent',
+        detailHtmlFileName: 'detial',
+        pageSize: 14,
+        columnIdName: [{id: 199, name: '新闻'}, {id: 517, name: '活动'}, {id: 519, name: '公告'}, {id: 521, name: '攻略'}]
+    })
+ */
+function paging (obj) {
+    let navStr = ''
+    let idAll = ''
+    for (let value of obj.columnIdName) {
+        idAll += `${value.id},`
+        navStr += `<a data-column="${value.id}">${value.name}</a>`
+    }
+    const navStrAll = `<a class="active" data-column="${idAll}">最新</a>${navStr}`
+
+    const pagingStr = `<div class="paging-nav">${navStrAll}</div>
+    <div class="paging-con">
+        <ul class="paging-list"></ul>
+        <div class="paging-btn"></div>
+    </div>`
+    $(obj.element).html(pagingStr)
+
+    const navEle = `${obj.element} .paging-nav`
+    const listEle = `${obj.element} .paging-list`
+    const btnEle = `${obj.element} .paging-btn`
+
+    getArticleList(idAll, 1)
+    $(document).on('click', btnEle + ' a', function () {
+        getArticleList($(this).data('column'), $(this).data('page'))
+    })
+    $(document).on('click', navEle + ' a', function () {
+        getArticleList($(this).data('column'), 1)
+
+        $(navEle + ' a').removeClass('active')
+        $(this).addClass('active')
+    })
+
+    function getArticleList (columnId, pageNum) {
+        $.ajax({
+            type: 'GET',
+            url: obj.url,
+            data: {
+                column_id: columnId,
+                type: 'article',
+                page: pageNum,
+                pageSize: obj.pageSize
+            },
+            dataType: 'jsonp',
+            success: function (data) {
+                let list = ''
+                $.each(data.data.data, function (i, d) {
+                    let columnName = ''
+                    for (let value of obj.columnIdName) {
+                        if (parseInt(d.column_id) === parseInt(value.id)) {
+                            columnName = value.name
+                        }
+                    }
+
+                    list += `<li>
+<a target="_blank" href="${obj.detailHtmlFileName}.html?column_id=${d.column_id}&id=${d.id}"><span>[${columnName}]</span>${d.title}</a>
+<time>${d.create_time.split(' ')[0]}</time>
+</li>`
+                })
+                $(listEle).html(list)
+
+                const dataIn = data.data
+                if (dataIn.totalPage > 1) {
+                    const prevBtn = (parseInt(dataIn.page) - 1) === 0 ? '' : `<a data-page="${(parseInt(dataIn.page) - 1)}" data-column="${columnId}">上一页</a>`
+
+                    let page = `<a data-page="1" data-column="${columnId}">首页</a>${prevBtn}`
+
+                    for (let i = 1; i <= dataIn.totalPage; i++) {
+                        let classStyle = ''
+                        if (parseInt(i) === parseInt(dataIn.page)) {
+                            classStyle = 'active'
+                        }
+                        page += `<a data-page="${i}" class="${classStyle}" data-column="${columnId}">${i}</a>`
+                    }
+
+                    const nextBtn = parseInt(dataIn.page) === dataIn.totalPage ? '' : `<a data-page="${(parseInt(dataIn.page) + 1)}" data-column="${columnId}">下一页</a>`
+
+                    page += nextBtn + `<a data-page="${dataIn.totalPage}" data-column="${columnId}">末页</a>`
+
+                    $(btnEle).html(page)
+                } else {
+                    $(btnEle).html('')
+                }
+            }
+        })
+    }
+}
+
 export {
     remRootFontSize,
     browserTips,
@@ -376,5 +473,6 @@ export {
     gameDownloadM,
     lkLoadingHtml,
     videoPlay,
-    imgPop
+    imgPop,
+    paging
 }

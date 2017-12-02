@@ -270,3 +270,47 @@ a[title='站长统计'] {
         }
     }
 }
+
+/* paging */
+.paging-nav {
+    text-align: center;
+
+    a {
+        display: inline-block;
+        text-align: center;
+
+        &:hover,
+        &.active {
+            color: #b74c44;
+            text-decoration: none;
+        }
+    }
+}
+
+.paging-list {
+    li {
+        clear: both;
+    }
+
+    a {
+        float: left;
+        color: #000;
+    }
+
+    time {
+        float: right;
+    }
+}
+
+.paging-btn {
+    text-align: center;
+
+    a {
+        display: inline-block;
+
+        &:hover,
+        &.active {
+            font-weight: bold;
+        }
+    }
+}

@@ -4,7 +4,7 @@
  * Description：root route
  */
 
-import React from 'react'
+/* import React from 'react'
 import { Route, Switch } from 'react-router'
 
 const rootRoutes = <Switch>
@@ -26,4 +26,18 @@ const rootRoutes = <Switch>
     }}/>
 </Switch>
 
-export default rootRoutes
+export default rootRoutes */
+
+import { Switch, Route } from 'react-router-dom'
+
+const HomePage = () => <div>Home Page</div>
+const UsersPage = () => <div>Users Page</div>
+
+const PrimaryLayout = () => (
+    <Switch>
+        <Route exact path="/" component={HomePage}/>
+        <Route path="/about" component={UsersPage}/>
+    </Switch>
+)
+
+export default PrimaryLayout
