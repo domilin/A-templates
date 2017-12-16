@@ -1,3 +1,5 @@
+const fs = require('fs')
+const {resolve} = require('path')
 const gulp = require('gulp')
 const clean = require('gulp-clean')
 const fileinclude = require('gulp-file-include')
@@ -14,12 +16,12 @@ const runSequence = require('run-sequence')
 const connect = require('gulp-connect')
 const rev = require('gulp-rev')
 const revCollector = require('gulp-rev-collector')
-const proxy = require('http-proxy-middleware')
 const stylelint = require('gulp-stylelint')
 const ejs = require('gulp-ejs')
 const gutil = require('gulp-util')
 
 const webpackconfig = require('./webpack.config.js')
+const config = require('./config.js')
 
 /* ----------------------------------------处理html---------------------------------------- */
 // 处理ejs模板
@@ -40,7 +42,7 @@ gulp.task('htmlInclude', () => {
         .pipe(connect.reload())
 })
 // 压缩HTML
-gulp.task('minifyHtml', ['ejsInclude', 'htmlInclude'], () => {
+gulp.task('minifyHtml', () => {
     const options = {
         removeComments: true,
         collapseWhitespace: true,
@@ -68,7 +70,7 @@ gulp.task('lintCss', () => {
         }))
 })
 // sass处理
-gulp.task('sass', ['lintCss'], () => {
+gulp.task('sass', () => {
     return gulp.src('src/css/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
@@ -77,7 +79,7 @@ gulp.task('sass', ['lintCss'], () => {
         .pipe(connect.reload())
 })
 // postcss处理css
-gulp.task('postcss', ['sass'], () => {
+gulp.task('postcss', () => {
     const plugins = [
         autoprefixer({browsers: ['last 2 versions', 'ie >= 8', '> 5% in CN']})
     ]
@@ -89,7 +91,7 @@ gulp.task('postcss', ['sass'], () => {
         .pipe(connect.reload())
 })
 // 压缩css并添加hash值
-gulp.task('minifyCss', ['lintCss', 'sass', 'postcss'], () => {
+gulp.task('minifyCss', () => {
     return gulp.src('dist/css/*.css')
         .pipe(rev())
         .pipe(cleanCSS({compatibility: 'ie8'}))
@@ -99,6 +101,17 @@ gulp.task('minifyCss', ['lintCss', 'sass', 'postcss'], () => {
 })
 
 /* ----------------------------------------处理js---------------------------------------- */
+// 拷贝不打包js至dist
+gulp.task('copyJsDist', () => {
+    return gulp.src(['src/js-not-hash/*.js'])
+        .pipe(gulp.dest('dist/js'))
+        .pipe(connect.reload())
+})
+// 拷贝不打包js至build
+gulp.task('copyJsBuild', () => {
+    return gulp.src(['src/js-not-hash/*.js'])
+        .pipe(gulp.dest('build/js'))
+})
 // 引用webpack对js进行操作
 gulp.task('buildJs', () => {
     return gulp.src('src/js/*.js')
@@ -106,9 +119,36 @@ gulp.task('buildJs', () => {
         .pipe(gulp.dest('dist'))
         .pipe(connect.reload())
 })
+
 // 添加js的hash值
-gulp.task('hashJs', ['buildJs'], () => {
-    return gulp.src(['dist/js/*.js'])
+const ROOT_PATH = resolve(process.cwd())
+const SRC_PATH = resolve(ROOT_PATH, 'src')
+const JS_NOT_HASH = resolve(SRC_PATH, 'js-not-hash')
+const DIST_PATH = resolve(ROOT_PATH, 'dist')
+const JS_PATH = resolve(DIST_PATH, 'js')
+const getFilesName = (path) => {
+    let dirs = fs.readdirSync(path)
+    let arr = []
+    dirs.forEach(function (item) {
+        const matchs = item.match(/(.+)\.js$/)
+        if (matchs) {
+            arr.push(matchs[1])
+        }
+    })
+    return arr
+}
+gulp.task('hashJs', () => {
+    let filesNameArr = getFilesName(JS_PATH)
+    for (let value of getFilesName(JS_NOT_HASH)) {
+        const index = filesNameArr.indexOf(value)
+        if (index > -1) {
+            filesNameArr.splice(index, 1)
+        }
+    }
+    const files = filesNameArr.map((value) => {
+        return `dist/js/${value}.js`
+    })
+    return gulp.src(files)
         .pipe(rev())
         .pipe(gulp.dest('build/js'))
         .pipe(rev.manifest())
@@ -161,7 +201,7 @@ gulp.task('cleanBuildRev', () => {
 })
 
 /* ----------------------------------------替换hash文件及路径---------------------------------------- */
-const publicPath = '..'
+const publicPath = config.publicPath
 
 gulp.task('revHtmlCss', () => { // 替换html中的css为hash css
     return gulp.src(['rev/css/*.json', 'build/html/*.html'])
@@ -228,19 +268,10 @@ gulp.task('pcCopyBuild', () => {
 gulp.task('connect', () => {
     connect.server({
         root: ['dist'],
-        port: 8020,
+        port: config.port,
         livereload: true,
         middleware: (connect, opt) => {
-            return [
-                proxy('/api', {
-                    target: 'http://localhost:8080',
-                    changeOrigin: true
-                }),
-                proxy('/otherServer', {
-                    target: 'http://IP:Port',
-                    changeOrigin: true
-                })
-            ]
+            return config.proxy
         }
     })
 })
@@ -256,7 +287,7 @@ gulp.task('watch', () => {
 // 移动端
 gulp.task('devM', (callback) => runSequence(
     'cleanDist',
-    ['lintCss', 'mCopyDist'],
+    ['lintCss', 'mCopyDist', 'copyJsDist'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg', 'sass'],
     ['postcss'],
     ['watch', 'connect'],
@@ -264,7 +295,7 @@ gulp.task('devM', (callback) => runSequence(
 ))
 gulp.task('buildM', (callback) => runSequence(
     'cleanBuildRev',
-    ['lintCss', 'mCopyBuild'],
+    ['lintCss', 'mCopyBuild', 'copyJsBuild'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg', 'sass'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],
@@ -276,7 +307,7 @@ gulp.task('buildM', (callback) => runSequence(
 // PC端
 gulp.task('devPc', (callback) => runSequence(
     'cleanDist',
-    ['lintCss', 'pcCopyDist'],
+    ['lintCss', 'pcCopyDist', 'copyJsDist'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg', 'sass'],
     ['postcss'],
     ['watch', 'connect'],
@@ -284,7 +315,7 @@ gulp.task('devPc', (callback) => runSequence(
 ))
 gulp.task('buildPc', (callback) => runSequence(
     'cleanBuildRev',
-    ['lintCss', 'pcCopyBuild'],
+    ['lintCss', 'pcCopyBuild', 'copyJsBuild'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg', 'sass'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],

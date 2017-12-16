@@ -12,6 +12,16 @@ $(function () {
     imgPop('#imgPopBtn')
     banner()
 
+    $.ajax({
+        type: 'GET',
+        url: '/community/login/createtoken.do',
+        data: {},
+        dataType: 'json',
+        success: function (data) {
+            console.log(data)
+        }
+    })
+
     // 新闻列表页
     paging({
         element: '#newsList',
