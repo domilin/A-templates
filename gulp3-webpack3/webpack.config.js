@@ -3,6 +3,8 @@ const fs = require('fs')
 const webpack = require('webpack')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
+const config = require('./config.js')
+
 const ROOT_PATH = resolve(process.cwd())
 const SRC_PATH = resolve(ROOT_PATH, 'src')
 const JS_PATH = resolve(SRC_PATH, 'js')
@@ -22,9 +24,18 @@ function getEntry () {
     return files
 }
 
+let entryFiles = {}
+if (config.vendors.length !== 0) {
+    entryFiles = Object.assign(getEntry(), {
+        vendors: config.vendors
+    })
+} else {
+    entryFiles = getEntry()
+}
+
 module.exports = {
     devtool: 'source-map',
-    entry: getEntry(),
+    entry: entryFiles,
     output: {
         path: DIST_PATH,
         filename: 'js/[name].js',

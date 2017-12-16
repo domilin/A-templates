@@ -3,6 +3,7 @@ const proxy = require('http-proxy-middleware')
 module.exports = {
     port: '8040',
     publicPath: '../',
+    vendors: [],
     proxy: [
         proxy('/community/login/createtoken.do', {
             target: 'http://play.linekong.com',
