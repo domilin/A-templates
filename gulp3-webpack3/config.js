@@ -1,5 +1,11 @@
 const proxy = require('http-proxy-middleware')
 
+/**
+ * 不添加hash的图片 src/img-not-hash
+ * 不添加hash的JS src/js-not-hash
+ * ESLint忽略文件 .eslintignore
+ * Stylelint忽略文件 .stylelintrc -> ignoreFiles
+ */
 module.exports = {
     port: '8040',
     publicPath: '../',
@@ -15,8 +21,3 @@ module.exports = {
         })
     ]
 }
-
-// 不添加hash图片放在 src/js-not-hash
-// 不打包js放在 src/js-not-hash
-// ESLint忽略文件 .eslintignore
-// Stylelint忽略文件 .stylelintrc-ignoreFiles
