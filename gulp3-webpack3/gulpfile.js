@@ -70,7 +70,7 @@ gulp.task('lintCss', () => {
         }))
 })
 // sass处理
-gulp.task('sass', () => {
+gulp.task('sass', ['lintCss'], () => {
     return gulp.src('src/css/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
