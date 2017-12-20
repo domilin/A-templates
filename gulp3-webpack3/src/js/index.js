@@ -11,6 +11,13 @@ $(function () {
     goToMobile('http://www.baidu.com')
     imgPop('#imgPopBtn')
     banner()
+    $(document).on('click', '#demodiv', function () {
+        alert('a')
+    })
+
+    setTimeout(function () {
+        $('body').append('<div id="demodiv" style="font-size: 40px;">demodemodemo</div>')
+    }, 2000)
 
     $.ajax({
         type: 'GET',

@@ -79,7 +79,7 @@ gulp.task('sass', ['lintCss'], () => {
         .pipe(connect.reload())
 })
 // postcss处理css
-gulp.task('postcss', () => {
+gulp.task('postcss', ['sass'], () => {
     const plugins = [
         autoprefixer({browsers: ['last 2 versions', 'ie >= 8', '> 5% in CN']})
     ]
@@ -278,7 +278,7 @@ gulp.task('connect', () => {
 gulp.task('watch', () => {
     gulp.watch(['src/html/*.html', 'src/html/*/*.html'], ['htmlInclude'])
     gulp.watch(['src/html/*.ejs', 'src/html/*/*.ejs'], ['ejsInclude'])
-    gulp.watch(['src/css/*.scss', 'src/css/*/*.scss'], ['sass', 'postcss'])
+    gulp.watch(['src/css/*.scss', 'src/css/*/*.scss'], ['postcss'])
     gulp.watch(['src/js/*.js', 'src/js/*/*.js'], ['buildJs'])
     gulp.watch(['src/img/*.*', 'src/img/*/*.*'], ['copyImg'])
 })
@@ -287,16 +287,16 @@ gulp.task('watch', () => {
 // 移动端
 gulp.task('devM', (callback) => runSequence(
     'cleanDist',
-    ['lintCss', 'mCopyDist', 'copyJsDist'],
-    ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg', 'sass'],
+    ['mCopyDist', 'copyJsDist'],
+    ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg'],
     ['postcss'],
     ['watch', 'connect'],
     callback
 ))
 gulp.task('buildM', (callback) => runSequence(
     'cleanBuildRev',
-    ['lintCss', 'mCopyBuild', 'copyJsBuild'],
-    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg', 'sass'],
+    ['mCopyBuild', 'copyJsBuild'],
+    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],
     ['revHtmlCss', 'revCssImg'],
@@ -307,16 +307,16 @@ gulp.task('buildM', (callback) => runSequence(
 // PC端
 gulp.task('devPc', (callback) => runSequence(
     'cleanDist',
-    ['lintCss', 'pcCopyDist', 'copyJsDist'],
-    ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg', 'sass'],
+    ['pcCopyDist', 'copyJsDist'],
+    ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg'],
     ['postcss'],
     ['watch', 'connect'],
     callback
 ))
 gulp.task('buildPc', (callback) => runSequence(
     'cleanBuildRev',
-    ['lintCss', 'pcCopyBuild', 'copyJsBuild'],
-    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg', 'sass'],
+    ['pcCopyBuild', 'copyJsBuild'],
+    ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],
     ['revHtmlCss', 'revCssImg'],
