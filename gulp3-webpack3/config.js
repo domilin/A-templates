@@ -2,7 +2,7 @@ const proxy = require('http-proxy-middleware')
 
 /**
  * 不添加hash的图片 src/img-not-hash
- * 不添加hash的JS src/js-not-lint
+ * 不进行代码检测与压缩的JS src/js-not-lint
  * ESLint忽略文件 .eslintignore
  * Stylelint忽略文件 .stylelintrc -> ignoreFiles
  */
