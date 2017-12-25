@@ -1,5 +1,3 @@
-const fs = require('fs')
-const {resolve} = require('path')
 const gulp = require('gulp')
 const clean = require('gulp-clean')
 const fileinclude = require('gulp-file-include')
@@ -101,16 +99,11 @@ gulp.task('minifyCss', () => {
 })
 
 /* ----------------------------------------处理js---------------------------------------- */
-// 拷贝不打包js至dist
+// 拷贝不检测js至dist
 gulp.task('copyJsDist', () => {
-    return gulp.src(['src/js-not-hash/*.js'])
+    return gulp.src(['src/js-not-lint/*.*', 'src/js-not-lint/*/*.*'])
         .pipe(gulp.dest('dist/js'))
         .pipe(connect.reload())
-})
-// 拷贝不打包js至build
-gulp.task('copyJsBuild', () => {
-    return gulp.src(['src/js-not-hash/*.js'])
-        .pipe(gulp.dest('build/js'))
 })
 // 引用webpack对js进行操作
 gulp.task('buildJs', () => {
@@ -120,35 +113,8 @@ gulp.task('buildJs', () => {
         .pipe(connect.reload())
 })
 
-// 添加js的hash值
-const ROOT_PATH = resolve(process.cwd())
-const SRC_PATH = resolve(ROOT_PATH, 'src')
-const JS_NOT_HASH = resolve(SRC_PATH, 'js-not-hash')
-const DIST_PATH = resolve(ROOT_PATH, 'dist')
-const JS_PATH = resolve(DIST_PATH, 'js')
-const getFilesName = (path) => {
-    let dirs = fs.readdirSync(path)
-    let arr = []
-    dirs.forEach(function (item) {
-        const matchs = item.match(/(.+)\.js$/)
-        if (matchs) {
-            arr.push(matchs[1])
-        }
-    })
-    return arr
-}
 gulp.task('hashJs', () => {
-    let filesNameArr = getFilesName(JS_PATH)
-    for (let value of getFilesName(JS_NOT_HASH)) {
-        const index = filesNameArr.indexOf(value)
-        if (index > -1) {
-            filesNameArr.splice(index, 1)
-        }
-    }
-    const files = filesNameArr.map((value) => {
-        return `dist/js/${value}.js`
-    })
-    return gulp.src(files)
+    return gulp.src(['dist/js/*.*', 'dist/js/*/*.*'])
         .pipe(rev())
         .pipe(gulp.dest('build/js'))
         .pipe(rev.manifest())
@@ -295,7 +261,7 @@ gulp.task('devM', (callback) => runSequence(
 ))
 gulp.task('buildM', (callback) => runSequence(
     'cleanBuildRev',
-    ['mCopyBuild', 'copyJsBuild'],
+    ['mCopyBuild'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],
@@ -315,7 +281,7 @@ gulp.task('devPc', (callback) => runSequence(
 ))
 gulp.task('buildPc', (callback) => runSequence(
     'cleanBuildRev',
-    ['pcCopyBuild', 'copyJsBuild'],
+    ['pcCopyBuild'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],

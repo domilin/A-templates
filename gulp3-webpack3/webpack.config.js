@@ -32,7 +32,6 @@ if (config.vendors.length !== 0) {
 } else {
     entryFiles = getEntry()
 }
-
 module.exports = {
     devtool: 'source-map',
     entry: entryFiles,

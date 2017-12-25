@@ -6,8 +6,18 @@
 
 import { goToMobile, imgPop, paging } from '../../libs/js/utils'
 import banner from './index/banner'
+import axios from 'axios'
+import echarts from 'echarts'
 
 $(function () {
+    echarts.init()
+    axios({}).then(function (response) {
+        const data = response.data
+        console.log(data)
+    }).catch(function (error) {
+        console.error(error)
+    })
+
     goToMobile('http://www.baidu.com')
     imgPop('#imgPopBtn')
     banner()

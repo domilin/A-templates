@@ -51,5 +51,8 @@
     "url-loader": "^0.5.9",
     "webpack": "^3.5.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.17.1",
+    "echarts": "^3.8.5"
+  }
 }
