@@ -5,8 +5,8 @@
  * Time：2017-09-05 20:09
  * Description：pc util
  */
-@import "normalize";
-@import "public";
+@import "./normalize";
+@import "./public";
 
 /* website statistics */
 .website-statistics {
@@ -128,7 +128,7 @@ a[title='站长统计'] {
     position: fixed;
     left: 0;
     top: 0;
-    background: url("http://common.8864.com/web/img/opacity-black-bg.png");
+    background: url("../img/opacity-black-bg.png");
     display: block;
     height: 100%;
     width: 100%;
@@ -181,7 +181,7 @@ a[title='站长统计'] {
 
         a.browser-tips-close {
             margin: 0 10px;
-            background: url("http://common.8864.com/web/img/close-btn.png") no-repeat center;
+            background: url("../img/close-btn.png") no-repeat center;
             display: inline-block;
             height: 51px;
             width: 148px;

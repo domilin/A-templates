@@ -1,0 +1,135 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:18
+ * Description：gt 1280
+ */
+
+@media screen and (min-width: 1280px) {
+    .app {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        //height: 100vh;
+        height: 900px;
+        background: url("../../img/app/app-bg.jpg") no-repeat center / 100%;
+        background-size: cover;
+
+        .content {
+            width: 1200px;
+            position: relative;
+            margin: 0 auto;
+            height: 100%;
+            //transition: all 0.5s;
+
+            .frame {
+                width: 558px;
+                height: 712px;
+                background: url("../../img/app/frame.png") no-repeat center / 100%;
+                background-size: cover;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            .downLoad {
+                width: 470px;
+                height: 390px;
+                position: absolute;
+                bottom: 200px;
+                right: 53px;
+
+                .official {
+                    display: inline-block;
+                    width: 100%;
+                    color: #fff;
+                    font-family: "fzltth";
+                    font-size: 48px;
+                    letter-spacing: 10px;
+                }
+
+                .custom {
+                    font-family: "fzlttx";
+                    font-size: 24px;
+                    color: rgba(255, 255, 255, 0.7);
+                    letter-spacing: 5px;
+                    margin: 40px 0;
+                }
+
+                .qrCode {
+                    width: 206px;
+                    height: 213px;
+                    background: url("../../img/app/qrCode.png") no-repeat center / 100%;
+                    background-size: cover;
+                    position: absolute;
+                    left: 0;
+
+                    img {
+                        width: 140px;
+                        height: 140px;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        left: 0;
+                        bottom: 6px;
+                        margin: auto;
+                    }
+                }
+
+                .type {
+                    font-family: 'fzlttx';
+                    display: flex;
+                    height: 213px;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    font-size: 19px;
+                    color: rgb(255, 255, 255);
+                    position: absolute;
+                    right: 20px;
+
+                    p {
+                        letter-spacing: 2px;
+                        margin: 15px 0;
+                        width: 200px;
+                        height: 62px;
+                        border: 1px solid #fff;
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: auto;
+                        user-select: none;
+                        transition: all 0.1s;
+                        line-height: 62px \9;
+                        text-align: center;
+
+                        &.iosButton {
+                            margin-top: 30px \9;
+                        }
+
+                        &:hover {
+                            background: #fff;
+                            color: rgb(238, 63, 60);
+                        }
+
+                        .iosSign {
+                            display: inline-block;
+                            margin-bottom: 10px;
+                        }
+
+                        i {
+                            vertical-align: middle;
+                            font-size: 35px;
+                            margin-right: 15px;
+                            margin-right: 5px \9;
+                        }
+                    }
+                }
+            }
+        }
+
+        .forPhone {
+            display: none;
+        }
+    }
+}

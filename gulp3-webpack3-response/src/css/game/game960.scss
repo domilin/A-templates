@@ -1,0 +1,103 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:19
+ * Description：gt960
+ */
+
+@media screen and (max-width: 1279px) and (min-width: 961px) {
+    .games {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        //height: 100vh;
+        background: #fff;
+        background-size: cover;
+
+        .content {
+            font-size: 0;
+            width: 1000px;
+            position: relative;
+            margin: 200px auto 0;
+            //transition: all 0.5s;
+
+            .desc {
+                width: 100%;
+                height: 310px;
+                text-align: center;
+                margin-top: 112px;
+                letter-spacing: 8px;
+
+                .title {
+                    font-family: 'fzltth';
+                    letter-spacing: 10px;
+                    font-size: 48px;
+                    color: #37474f;
+                }
+
+                .sign {
+                    display: inline-block;
+                    width: 564px;
+                    height: 30px;
+                    margin-top: 36px;
+                    margin-bottom: 20px;
+                    background: url("../../img/app/word.png") no-repeat center / 100%;
+                }
+
+                .tips {
+                    font-weight: 600;
+                    font-size: 30px;
+                    color: #ef5350;
+                    margin-top: 10px;
+                }
+            }
+
+            .games {
+                width: 100%;
+                font-size: 0;
+
+                .items {
+                    position: relative;
+                    text-align: justify;
+
+                    .item {
+                        height: 275px;
+                        width: 318px;
+                        border: 1px solid rgb(207, 216, 220);
+                        border-radius: 10px;
+                        display: inline-block;
+                        margin-bottom: 20px;
+                        float: left;
+
+                        &:nth-of-type(3n - 1) {
+                            margin: 0 20px 20px;
+                        }
+
+                        &:last-child {
+                            margin-bottom: 50px;
+                        }
+
+                        .gameTitle {
+                            letter-spacing: 5px;
+                            font-size: 36px;
+                            color: #37474f;
+                            padding: 50px 0 30px;
+                            margin-left: 21px;
+                            width: 278px;
+                            border-bottom: 1px solid rgb(207, 216, 220);
+                        }
+
+                        .gameContent {
+                            height: 75px;
+                            line-height: 25px;
+                            padding: 29px 21px;
+                            letter-spacing: 2px;
+                            font-size: 18px;
+                            color: #90a4ae;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

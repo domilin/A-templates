@@ -1,0 +1,127 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:23
+ * Description：gt640
+ */
+
+@media screen and (max-width: 959px) and (min-width: 640px) {
+    .size {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        color: #455a64;
+
+        .content {
+            position: relative;
+            margin: 200px auto 0;
+            height: 100%;
+
+            .size-contain {
+                box-sizing: content-box;
+                margin: 0 auto;
+
+                .size-title {
+                    font-family: 'fzltth';
+                    font-size: 48px;
+                    text-align: center;
+                    width: 100%;
+                    letter-spacing: 2px;
+                    margin-top: 112px;
+                }
+
+                .size-box {
+                    margin: 0 auto 20px;
+                    width: 600px;
+                    border: 1px solid #cfd8dc;
+                    border-radius: 10px;
+                    position: relative;
+
+                    h3 {
+                        text-align: center;
+                        font-size: 36px;
+                        position: absolute;
+                        top: 40px;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                    }
+
+                    .p-detail {
+                        position: absolute;
+                        font-size: 18px;
+                        left: 40px;
+                        top: 150px;
+
+                        .p-item {
+                            font-family: 'fzlttx';
+                            margin-bottom: 18px;
+                            font-weight: bold;
+                        }
+
+                        .p-label {
+                            margin-right: 50px;
+                        }
+                    }
+
+                    &.box1 {
+                        height: 761px;
+                        margin-top: 100px;
+
+                        .size-img {
+                            width: 440px;
+                            height: 338px;
+                            background: url("../../img/size/img1_960.png") no-repeat center / 100%;
+                            position: absolute;
+                            top: 170px;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                        }
+
+                        .p-detail {
+                            top: unset;
+                            bottom: 30px;
+                        }
+                    }
+
+                    &.box2 {
+                        height: 383px;
+
+                        .p-detail {
+                            width: 505px;
+                        }
+
+                        .p-cont {
+                            float: right;
+                            display: inline-block;
+                            width: 328px;
+                        }
+                    }
+
+                    &.box3 {
+                        height: 420px;
+
+                        .p-detail {
+                            width: 310px;
+                        }
+
+                        .p-cont {
+                            float: right;
+                            display: inline-block;
+                            width: 180px;
+                        }
+                    }
+
+                    &.box4 {
+                        height: 219px;
+
+                        p {
+                            display: inline-block;
+                            margin-right: 43px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

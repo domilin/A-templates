@@ -1,0 +1,805 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:24
+ * Description：trumpet
+ */
+@import '../../../libs/scss/rem';
+
+.trumpet {
+    height: 1500px;
+    // background: url("../../img/trumpet-bg-1280.jpg") center no-repeat;
+    background: repeating-linear-gradient(to top, #393e41, #1d2022 40%, #1c1f21 100%);
+    overflow: hidden;
+
+    .trumpet-box {
+        margin: 0 auto;
+        position: relative;
+        height: 100%;
+        max-width: 1010px;
+        color: #fff;
+
+        h5 {
+            padding: 150px 0 50px;
+            font-size: 72px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0;
+        }
+
+        .describe {
+            font-size: 24px;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0;
+
+            span {
+                padding: 0 30px;
+            }
+        }
+
+        .trumpet-detail {
+            position: absolute;
+            left: 0;
+            top: 555px;
+            width: 100%;
+            z-index: 12;
+
+            .detail-text {
+                position: absolute;
+                color: #fff;
+
+                h6 {
+                    font-size: 51px;
+                    opacity: 0;
+                    transition: all 1s ease 2s, opacity 2s ease-in-out 2s;
+
+                    i {
+                        font-size: 24px;
+                    }
+                }
+
+                p {
+                    margin-top: 15px;
+                    font-size: 24px;
+                    opacity: 0;
+                    transition: all 1s ease 2s, opacity 2s ease-in-out 2s;
+                }
+
+                span {
+                    position: absolute;
+                    border-bottom: 1px #fff solid;
+                    height: 10px;
+                    display: block;
+                    opacity: 0;
+                    transition: all 1s ease 1s, opacity 2s ease-in-out 1s;
+                    width: 100%;
+                }
+
+                &.l1,
+                &.l2,
+                &.l3 {
+                    left: 0;
+                    text-align: left;
+
+                    h6,
+                    p {
+                        transform: translate3d(200px, 0, 0);
+                    }
+
+                    span {
+                        top: 70px;
+                        transform: translate3d(200px, 0, 0);
+                    }
+                }
+
+                &.l1 {
+                    top: 0;
+
+                    span {
+                        left: 220px;
+                        width: 210px;
+                    }
+                }
+
+                &.l2 {
+                    top: 350px;
+
+                    span {
+                        left: 200px;
+                        width: 150px;
+                    }
+                }
+
+                &.l3 {
+                    top: 635px;
+
+                    span {
+                        left: 150px;
+                        top: 50px;
+                        width: 200px;
+                    }
+                }
+
+                &.r1,
+                &.r2,
+                &.r3 {
+                    right: 0;
+                    text-align: right;
+
+                    h6,
+                    p {
+                        display: block;
+                        text-align: left;
+                        transform: translate3d(-200px, 0, 0);
+                    }
+
+                    span {
+                        top: 50px;
+                        transform: translate3d(-200px, 0, 0);
+                    }
+                }
+
+                &.r1 {
+                    top: 40px;
+
+                    h6,
+                    p {
+                        width: 210px;
+                    }
+
+                    span {
+                        right: 215px;
+                        width: 220px;
+                    }
+                }
+
+                &.r2 {
+                    top: 300px;
+
+                    h6,
+                    p {
+                        width: 200px;
+                    }
+
+                    span {
+                        right: 205px;
+                        width: 200px;
+                    }
+                }
+
+                &.r3 {
+                    top: 735px;
+
+                    h6,
+                    p {
+                        width: 150px;
+                    }
+
+                    span {
+                        right: 155px;
+                        width: 320px;
+                    }
+                }
+            }
+
+            &.active {
+                .detail-text {
+                    h6,
+                    p {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+
+                    span {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+            }
+        }
+
+        $height: 800;
+        $width: 500;
+        $maskWidth: 1987;
+
+        .music-body {
+            margin-left: (-$width/2) + px;
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            height: $height + px;
+            mask-image: url("../../img/xiaoqing-mask.png");
+            mask-repeat: no-repeat;
+            mask-size: 100% 100%;
+            overflow: hidden;
+            width: $width + px;
+            z-index: 10;
+
+            .music-body-origin {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background: url("../../img/xiaoqing-origin.png") no-repeat center;
+                background-size: $width + px $height + px;
+                height: 100%;
+                width: 100%;
+                z-index: 0;
+            }
+
+            .music-body-mask {
+                position: absolute;
+                left: 0;
+                top: 0;
+                mask-image: url("../../img/xiaoqing-gradient.png");
+                mask-repeat: no-repeat;
+                mask-size: 100% 100%;
+                height: 100%;
+                transition: all 3s ease 0s;
+                transform: translate3d(0, 0, 0);
+                width: $maskWidth + px;
+                z-index: 1;
+
+                &.active {
+                    transform: translate3d((-$maskWidth + $width) + px, 0, 0);
+
+                    .music-body-shell {
+                        transform: translate3d(($maskWidth - $width) + px, 0, 0);
+                    }
+                }
+
+                .music-body-shell {
+                    background: url("../../img/xiaoqing-shell.png") no-repeat center;
+                    background-size: $width + px $height + px;
+                    mask-image: url("../../img/xiaoqing-mask.png");
+                    mask-repeat: no-repeat;
+                    mask-size: 100% 100%;
+                    height: $height + px;
+                    transition: all 3s ease 0s;
+                    transform: translate3d(0, 0, 0);
+                    width: $width + px;
+                }
+            }
+        }
+
+        .music-body-shadow {
+            margin-left: (-651/2) + px;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            background: url("../../img/xiaoqing-shadow.png") no-repeat center;
+            background-size: 100% 100%;
+            height: 121px;
+            width: 651px;
+            z-index: 9;
+        }
+
+        .music-wave {
+            margin-left: (-1500/2) + px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            height: 210px;
+            width: 1500px;
+            z-index: 11;
+
+            span {
+                position: absolute;
+                left: 0;
+                top: 0;
+                border: 1px solid #989b9c;
+                border-radius: 50%;
+                display: block;
+                height: 100%;
+                width: 100%;
+                mask-image: url("../../img/xiaoqing-wave-mask.png"); // 是否能用代码代替？
+                mask-size: 100% 100%;
+                mask-repeat: no-repeat;
+                opacity: 1;
+                transform: scale(1);
+                transform-origin: 50% 50%;
+                transition: all 2s ease 0s;
+
+                &:nth-child(1) {
+                    animation: wave 6s ease infinite 0s both;
+                }
+
+                &:nth-child(2) {
+                    animation: wave 6s ease infinite 1.5s both;
+                }
+
+                &:nth-child(3) {
+                    animation: wave 6s ease infinite 3s both;
+                }
+
+                &:nth-child(4) {
+                    animation: wave 6s ease infinite 4.5s both;
+                }
+            }
+
+            @keyframes wave {
+                0% {
+                    opacity: 1;
+                    transform: scale(0);
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .trumpet {
+        .trumpet-box {
+            max-width: 890px;
+
+            .describe {
+                line-height: 36px;
+
+                span {
+                    &.symbol-1280 {
+                        display: none;
+                    }
+
+                    &.symbol-960 {
+                        display: block;
+                    }
+
+                    &.symbol-640 {
+                        display: none;
+                    }
+                }
+            }
+
+            .trumpet-detail {
+                .detail-text {
+                    &.l1 {
+                        span {
+                            width: 160px;
+                        }
+                    }
+
+                    &.l2 {
+                        span {
+                            width: 95px;
+                        }
+                    }
+
+                    &.l3 {
+                        span {
+                            width: 150px;
+                        }
+                    }
+
+                    &.r1 {
+                        span {
+                            width: 180px;
+                        }
+                    }
+
+                    &.r2 {
+                        span {
+                            width: 165px;
+                        }
+                    }
+
+                    &.r3 {
+                        span {
+                            width: 350px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .trumpet {
+        height: 1276px;
+
+        .trumpet-box {
+            max-width: 630px;
+
+            h5 {
+                padding: 100px 0 50px;
+            }
+
+            .trumpet-detail {
+                top: 442px;
+
+                .detail-text {
+                    h6 {
+                        font-size: 36px;
+
+                        i {
+                            font-size: 20px;
+                        }
+                    }
+
+                    p {
+                        font-size: 20px;
+                        margin-top: 20px;
+                    }
+
+                    &.l1 {
+                        top: 0;
+
+                        span {
+                            left: 130px;
+                            width: 120px;
+                        }
+                    }
+
+                    &.l2 {
+                        top: 280px;
+
+                        span {
+                            left: 110px;
+                            width: 100px;
+                        }
+                    }
+
+                    &.l3 {
+                        top: 520px;
+
+                        span {
+                            left: 130px;
+                            top: 50px;
+                            width: 120px;
+                        }
+                    }
+
+                    &.r1 {
+                        top: 40px;
+
+                        h6,
+                        p {
+                            width: 150px;
+                        }
+
+                        span {
+                            right: 155px;
+                            width: 110px;
+                        }
+                    }
+
+                    &.r2 {
+                        top: 350px;
+
+                        h6,
+                        p {
+                            width: 100px;
+                        }
+
+                        span {
+                            right: 110px;
+                            width: 110px;
+                        }
+                    }
+
+                    &.r3 {
+                        top: 600px;
+
+                        h6,
+                        p {
+                            width: 100px;
+                        }
+
+                        span {
+                            right: 140px;
+                            width: 110px;
+                        }
+                    }
+                }
+            }
+
+            $height: 700;
+            $width: 438;
+            $maskWidth: 1573;
+
+            .music-body {
+                margin-left: (-$width/2) + px;
+                bottom: 100px;
+                height: $height + px;
+                width: $width + px;
+
+                .music-body-origin {
+                    background-size: $width + px $height + px;
+                }
+
+                .music-body-mask {
+                    width: $maskWidth + px;
+
+                    &.active {
+                        transform: translate3d((-$maskWidth + $width) + px, 0, 0);
+
+                        .music-body-shell {
+                            transform: translate3d(($maskWidth - $width) + px, 0, 0);
+                        }
+                    }
+
+                    .music-body-shell {
+                        background-size: $width + px $height + px;
+                        height: $height + px;
+                        width: $width + px;
+                    }
+                }
+            }
+
+            .music-body-shadow {
+                margin-left: (-450/2) + px;
+                bottom: 55px;
+                height: 84px;
+                width: 450px;
+            }
+
+            .music-wave {
+                margin-left: (-1000/2) + px;
+                bottom: 50px;
+                height: 140px;
+                width: 1000px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .trumpet {
+        height: rem(1276);
+
+        .trumpet-box {
+            max-width: rem(485);
+
+            h5 {
+                padding: rem(100) 0 rem(46);
+                font-size: rem(48);
+            }
+
+            .describe {
+                font-size: rem(24);
+                line-height: rem(36);
+
+                span {
+                    padding: 0;
+
+                    &.symbol-960 {
+                        display: none;
+                    }
+
+                    &.symbol-640 {
+                        display: block;
+                    }
+                }
+            }
+
+            .trumpet-detail {
+                margin-left: rem(-450/2);
+                left: 50%;
+                top: rem(400);
+                height: rem(780);
+                width: rem(450);
+
+                .detail-text {
+                    text-align: center;
+
+                    h6 {
+                        font-size: rem(24);
+                        font-weight: bold;
+
+                        i {
+                            font-size: rem(18);
+                        }
+                    }
+
+                    p {
+                        font-size: rem(18);
+                        margin-top: rem(15);
+                    }
+
+                    span {
+                        border-left: 1px #fff solid;
+                    }
+
+                    &.l1,
+                    &.l2,
+                    &.l3 {
+                        left: 0;
+                        text-align: center;
+
+                        h6,
+                        p {
+                            transform: translate3d(0, rem(200), 0);
+                        }
+
+                        span {
+                            top: rem(80);
+                            transform: translate3d(0, rem(200), 0);
+                        }
+                    }
+
+                    &.l1 {
+                        top: 0;
+
+                        span {
+                            left: rem(65);
+                            height: rem(240);
+                            width: rem(50);
+                        }
+                    }
+
+                    &.l2 {
+                        left: rem(175);
+                        top: 0;
+
+                        span {
+                            left: rem(50);
+                            height: rem(70);
+                            width: 0;
+                        }
+                    }
+
+                    &.l3 {
+                        left: rem(320);
+                        top: 0;
+
+                        span {
+                            left: rem(10);
+                            border-left: none;
+                            border-right: 1px #fff solid;
+                            height: rem(90);
+                            width: rem(40);
+                        }
+                    }
+
+                    &.r1,
+                    &.r2,
+                    &.r3 {
+                        bottom: 0;
+                        right: inherit;
+                        top: auto;
+                        text-align: center;
+
+                        h6,
+                        p {
+                            text-align: center;
+                            transform: translate3d(0, rem(-200), 0);
+                        }
+
+                        span {
+                            top: 0;
+                            transform: translate3d(0, rem(-200), 0);
+                        }
+                    }
+
+                    &.r1 {
+                        h6,
+                        p {
+                            width: inherit;
+                        }
+
+                        span {
+                            border-bottom: none;
+                            border-top: 1px #fff solid;
+                            height: rem(150);
+                            left: rem(45);
+                            top: rem(-160);
+                            right: inherit;
+                            width: rem(15);
+                        }
+                    }
+
+                    &.r2 {
+                        bottom: rem(-24);
+                        left: rem(145);
+
+                        h6,
+                        p {
+                            width: rem(120);
+                        }
+
+                        span {
+                            height: rem(110);
+                            left: rem(85);
+                            top: rem(-120);
+                            right: inherit;
+                            width: 0;
+                        }
+                    }
+
+                    &.r3 {
+                        left: rem(330);
+
+                        h6,
+                        p {
+                            width: rem(160);
+                        }
+
+                        span {
+                            border-bottom: none;
+                            border-left: none;
+                            border-top: 1px #fff solid;
+                            border-right: 1px #fff solid;
+                            height: rem(220);
+                            left: rem(62);
+                            top: rem(-230);
+                            right: inherit;
+                            width: rem(20);
+                        }
+                    }
+                }
+
+                &.active {
+                    .detail-text {
+                        h6,
+                        p {
+                            opacity: 1;
+                            transform: translate3d(0, 0, 0);
+                        }
+
+                        span {
+                            opacity: 1;
+                            transform: translate3d(0, 0, 0);
+                        }
+                    }
+                }
+            }
+
+            $height: 600;
+            $width: 375;
+            $maskWidth: 1349;
+
+            .music-body {
+                margin-left: rem(-$width/2);
+                bottom: rem(200);
+                height: rem($height);
+                width: rem($width);
+
+                .music-body-origin {
+                    background-size: rem($width) rem($height);
+                }
+
+                .music-body-mask {
+                    width: rem($maskWidth);
+
+                    &.active {
+                        transform: translate3d(rem(-$maskWidth + $width), 0, 0);
+
+                        .music-body-shell {
+                            transform: translate3d((rem($maskWidth - $width)), 0, 0);
+                        }
+                    }
+
+                    .music-body-shell {
+                        background-size: rem($width) rem($height);
+                        height: rem($height);
+                        width: rem($width);
+                    }
+                }
+            }
+
+            .music-body-shadow {
+                margin-left: rem(-450/2);
+                bottom: rem(155);
+                height: rem(84);
+                width: rem(450);
+            }
+
+            .music-wave {
+                margin-left: rem(-1000/2);
+                bottom: rem(150);
+                height: rem(140);
+                width: rem(1000);
+            }
+        }
+    }
+}

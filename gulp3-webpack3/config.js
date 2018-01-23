@@ -7,6 +7,7 @@ const proxy = require('http-proxy-middleware')
  * Stylelint忽略文件 .stylelintrc -> ignoreFiles
  */
 module.exports = {
+    host: '192.168.84.43',
     port: '8020',
     publicPath: '../',
     vendors: ['axios', 'echarts'],

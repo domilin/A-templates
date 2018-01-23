@@ -1,0 +1,120 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:19
+ * Description：gt960
+ */
+
+@media screen and (max-width: 1279px) and (min-width: 960px) {
+    .size {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        color: #455a64;
+
+        .content {
+            width: 960px;
+            position: relative;
+            margin: 200px auto 0;
+            height: 100%;
+
+            .size-contain {
+                box-sizing: content-box;
+                margin: 0 auto;
+                width: 960px;
+
+                .size-title {
+                    font-family: 'fzltth';
+                    font-size: 48px;
+                    text-align: center;
+                    width: 100%;
+                    letter-spacing: 2px;
+                    margin-top: 112px;
+                }
+
+                .size-box {
+                    margin: 0 auto 20px;
+                    width: 840px;
+                    border: 1px solid #cfd8dc;
+                    border-radius: 10px;
+                    position: relative;
+
+                    h3 {
+                        font-size: 36px;
+                        position: absolute;
+                        top: 40px;
+                        left: 40px;
+                    }
+
+                    .p-detail {
+                        position: absolute;
+                        font-size: 18px;
+                        left: 290px;
+                        top: 55px;
+
+                        .p-item {
+                            font-family: 'fzlttx';
+                            margin-bottom: 18px;
+                            font-weight: bold;
+                        }
+
+                        .p-label {
+                            margin-right: 50px;
+                        }
+                    }
+
+                    &.box1 {
+                        height: 729px;
+                        margin-top: 100px;
+
+                        .size-img {
+                            width: 562px;
+                            height: 423px;
+                            background: url("../../img/size/img1_1280.png") no-repeat center / 100%;
+                            position: absolute;
+                            top: 45px;
+                            right: 42px;
+                        }
+
+                        .p-detail {
+                            top: unset;
+                            bottom: 30px;
+                        }
+                    }
+
+                    &.box2 {
+                        height: 258px;
+
+                        .p-detail {
+                            width: 505px;
+                        }
+
+                        .p-cont {
+                            float: right;
+                            display: inline-block;
+                            width: 328px;
+                        }
+                    }
+
+                    &.box3 {
+                        height: 294px;
+
+                        .p-detail {
+                            width: 310px;
+                        }
+
+                        .p-cont {
+                            float: right;
+                            display: inline-block;
+                            width: 180px;
+                        }
+                    }
+
+                    &.box4 {
+                        height: 186px;
+                    }
+                }
+            }
+        }
+    }
+}
+

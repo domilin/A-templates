@@ -1,0 +1,114 @@
+<%- include('../../libs/html/header', {
+title: '小青智能音箱',
+description: '小青智能音箱',
+keywords: '小青智能音箱',
+plugin: ['http://common.8864.com/web/plugins/swiper/swiper.min.css'],
+private: ['../css/public.css', '../css/size.css']
+}) %>
+<%- include('./public/buy') %>
+<%- include('./public/nav', {
+current: 'size'
+}) %>
+
+<div class="main size">
+    <div class="content">
+        <div class="size-contain">
+            <h2 class="size-title">小青技术规格一览</h2>
+            <!--外形-->
+            <div class="size-box box1">
+                <h3>外形</h3>
+                <div class="size-img"></div>
+                <div class="p-detail">
+                    <p class="p-item">
+                        <span class="p-label">尺寸:</span>
+                        <span class="p-cont">160X160X255mm</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">重量:</span>
+                        <span class="p-cont">11.8kg</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">颜色:</span>
+                        <span class="p-cont">熔岩红&nbsp;|&nbsp;冰雪白&nbsp;|&nbsp;深海蓝</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">材质:</span>
+                        <span class="p-cont">纯棉氨纶混合型网布&nbsp;&nbsp;玻璃 <span class="inch">面板</span></span>
+                    </p>
+                </div>
+            </div>
+            <!--音频-->
+            <div class="size-box box2">
+                <h3>音频</h3>
+                <div class="p-detail">
+                    <p class="p-item">
+                        <span class="p-label">扬声器:</span>
+                        <span class="p-cont">5.25寸重低音扬声器 <span class="inch"> 1寸高音扬声器</span></span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">额定阻抗:</span>
+                        <span class="p-cont">6欧</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">频率响应范围:</span>
+                        <span class="p-cont">60-18khz</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">总谐波失真:</span>
+                        <span class="p-cont">0.5%@1kHz</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">专利技术:</span>
+                        <span class="p-cont">Constant horn <span class="inch">directivity 360°导音锥</span></span>
+                    </p>
+                </div>
+            </div>
+            <!--硬件-->
+            <div class="size-box box3">
+                <h3>硬件</h3>
+                <div class="p-detail">
+                    <p class="p-item">
+                        <span class="p-label">CPU:</span>
+                        <span class="p-cont">ARM&nbsp;Cortex-A7&nbsp;4核</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">内存:</span>
+                        <span class="p-cont">512MB</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">闪存:</span>
+                        <span class="p-cont">8GB</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">连接:</span>
+                        <span class="p-cont">WiFi&nbsp;&nbsp;&nbsp;蓝牙4.0</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">额定功率:</span>
+                        <span class="p-cont">30W</span>
+                    </p>
+                    <p class="p-item">
+                        <span class="p-label">电源适配:</span>
+                        <span class="p-cont">DC&nbsp;18 V / 2A</span>
+                    </p>
+                </div>
+            </div>
+            <!--包装清单-->
+            <div class="size-box box4">
+                <h3>包装清单</h3>
+                <div class="p-detail">
+                    <p class="p-item">小青智能动听音箱</p>
+                    <p class="p-item">适配器</p>
+                    <p class="p-item">产品说明书</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('./public/footer') %>
+<%- include('../../libs/html/footer', {
+plugin: ['../js/swiper.min.js'],
+private: ['../js/public.js', '../js/index.js'],
+statistics: ''
+}) %>

@@ -1,0 +1,46 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-12 15:19
+ * Description：designer
+ */
+@import '../../../libs/scss/rem';
+
+.ai {
+    background: url("../../img/ai-bg-1920.jpg") no-repeat center;
+    height: 900px;
+
+    .ai-box {
+        margin: 0 auto;
+        padding-top: 130px;
+        max-width: 1140px;
+        text-align: center;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .ai {
+        background: url("../../img/ai-bg-960.jpg") no-repeat center;
+        height: 900px;
+
+        .ai-box {
+            margin: 0 auto;
+            padding-top: 100px;
+            max-width: 1140px;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .ai {
+        background: url("../../img/ai-bg-640.jpg") no-repeat center;
+        background-size: cover;
+        height: rem(656);
+
+        .ai-box {
+            padding-top: rem(110);
+            max-width: 100%;
+        }
+    }
+}

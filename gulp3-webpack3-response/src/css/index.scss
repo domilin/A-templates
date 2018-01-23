@@ -1,0 +1,47 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2017-08-29 19:30
+ * Description：index
+ */
+@import "index/hello-xiaoqing";
+@import "index/product";
+@import "index/video";
+@import "index/trumpet";
+@import "index/hardware";
+@import "index/design";
+@import "index/music";
+@import "index/game";
+@import "index/designer";
+@import "index/ai";
+@import "index/sepcs";
+
+.upward {
+    animation: upward 0.6s linear 0.3s both;
+    transition: all 0.05s cubic-bezier(0.06, 0.67, 0.37, 0.99);
+}
+
+@keyframes upward {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

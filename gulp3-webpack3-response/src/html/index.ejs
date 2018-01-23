@@ -1,0 +1,359 @@
+<%- include('../../libs/html/header', {
+title: '小青智能音箱',
+description: '小青智能音箱',
+keywords: '小青智能音箱',
+plugin: [],
+private: ['../css/public.css', '../css/index.css']
+}) %>
+<%- include('./public/buy') %>
+<%- include('./public/nav', {
+current: 'index'
+}) %>
+
+<!-- hello-xiaoqing -->
+<div class="hello-xiaoqing" id="helloXiaoqing">
+    <div class="hello-xiaoqing-box">
+        <div class="hello-slogan">
+            <div class="slogan animate upward">
+                <h5></h5>
+                <p>人工智能动听音箱</p>
+            </div>
+            <ul id="helloChange">
+                <li class="active" data-type="">熔岩红</li>
+                <li data-type="white"><i></i>冰雪白<i></i></li>
+                <li data-type="blue">深海蓝</li>
+            </ul>
+            <div class="breath-light one" id="breathLight">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="green"><em></em></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- product -->
+<div class="swiper-container product-wrap" id="productWrap">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="product-two">
+                <div class="product-box animate">
+                    <div class="product-slogan">
+                        <h3>机器人造型<br/>
+                            有型多色，更有趣
+                        </h3>
+                        <h4>珍珠白 | 熔岩红 | 深海蓝</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="product">
+                <div class="product-box">
+                    <div class="product-slogan">
+                        <p class="icon"><img src="../img/person.png" alt=""></p>
+                        <p class="text">唤醒你的耳朵<span class="symbol">，</span>拥抱几何之美</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="product-three">
+                <div class="product-box">
+                    <div class="product-slogan">
+                        <div class="product-three-con">
+                            <h3>触手温暖<span class="symbol-1920">，</span><span class="symbol-640"></span>家的质感</h3>
+                            <h4>
+                                纯棉氨纶混合型网布<br/>
+                                带来舒适细触感的同时，妆点你的家
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="product-four"></div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<!-- video -->
+<div class="video">
+    <div class="video-box">
+        <div class="video-cont">
+            <p class="slogan animate">感受小青的魅力</p>
+            <p class="video-btn"><a id="videoPlayBtn" data-src="" ><img src="../img/video-btn.png" alt=""></a></p>
+            <p class="video-text">点击观看产品视频</p>
+        </div>
+    </div>
+</div>
+
+<!-- trumpet -->
+<div class="trumpet" id="trumpet">
+    <div class="trumpet-box">
+        <h5 class="animate">喇叭的革命</h5>
+        <div class="describe animate">
+            匠心级工业设计师
+            与顶级电声设计专家合作
+            <span class="symbol-1280">|</span>
+            <span class="symbol-960"></span>
+            以创新性腔体设计
+            结合先进的音频芯片技术
+            <span class="symbol-960"></span>
+            让我们在家中享受到
+            智能时代的听歌体验
+        </div>
+        <div class="music-body">
+            <div class="music-body-mask" id="musicBodyMask">
+                <div class="music-body-shell"></div>
+            </div>
+            <div class="music-body-origin"></div>
+        </div>
+        <div class="music-body-shadow"></div>
+        <div class="music-wave" id="musicWave">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="trumpet-detail" id="trumpetDetail">
+            <div class="detail-text l1">
+                <h6>Touchface</h6>
+                <p>触控交互面</p>
+                <span></span>
+            </div>
+            <div class="detail-text l2">
+                <h6>纯棉网布</h6>
+                <p>双层高质量</p>
+                <span></span>
+            </div>
+            <div class="detail-text l3">
+                <h6>360°</h6>
+                <p>全角度导音锥</p>
+                <span></span>
+            </div>
+            <div class="detail-text r1">
+                <h6>双麦克风</h6>
+                <p>正面椭圆形</p>
+                <span></span>
+            </div>
+            <div class="detail-text r2">
+                <h6>5.25<i>寸</i></h6>
+                <p>超大中低音扬声器</p>
+                <span></span>
+            </div>
+            <div class="detail-text r3">
+                <h6>1<i>寸</i></h6>
+                <p>高音扬声器</p>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hardware -->
+<div class="hardware">
+    <div class="hardware-box">
+        <div class="hardware-con animate">
+            <a class="icon-con"><img src="../img/hardware-play.png"></a>
+            <h3>
+                5.25寸<span class="symbol"></span>
+                中低音超大扬声器<br/>
+                比同类音箱更具震撼力
+            </h3>
+            <h4>
+                采用芬兰阔叶木纸浆
+                结合内凹式的防尘帽设计
+                <span class="symbol-1280"></span>
+                低音单元高度下沉10mm，
+                使空气接触面积更多
+                <span class="symbol-1280"></span>
+                搭载85mm大磁铁，
+                低音效果饱满有力
+            </h4>
+            <div class="cutline"></div>
+            <ul class="hardware-parameter">
+                <li>
+                    <h5>5.25<i>寸</i></h5>
+                    <p>中低音扬声器</p>
+                </li>
+                <li>
+                    <h5>85<i>mm</i></h5>
+                    <p>纯铜大磁铁</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- design -->
+<div class="design">
+    <div class="design-box animate">
+        <a class="icon-con"><img src="../img/design-icon.png"/></a>
+        <h3>
+            360°导音锥设计
+            <span class="symbol"></span>
+            每个角度都可获得
+            最佳聆听体验
+        </h3>
+        <h4>
+            导音锥通过
+            constant horn directivity专利技术
+            <span class="symbol-1280"></span>
+            低音柔和不生硬，
+            高音反射效率高且不失真
+        </h4>
+    </div>
+</div>
+
+<!-- music -->
+<div class="music">
+    <div class="music-box animate">
+        <h3>
+            海量音乐，随心点播
+        </h3>
+        <h4>
+            高保真音质，犹如身临其境
+            <span class="symbol-1280"></span>
+            流行歌曲、古典音乐、相声小品、故事儿歌
+            <span class="symbol-1280"></span>
+            ......
+            <span class="symbol-1280"></span>
+            每个人都能找到喜欢听的
+        </h4>
+    </div>
+</div>
+
+
+<!-- game -->
+<div class="game">
+    <div class="game-box animate">
+        <h3>
+            特色语音互动游戏
+        </h3>
+        <h4>
+            蓝港自主研发数十款
+            <span class="symbol-1280"></span>
+            语音互动游戏，
+            <span class="symbol-1280"></span>
+            是目前市面上语音互动游戏
+            <span class="symbol-1280"></span>
+            最多的音箱
+        </h4>
+        <div class="cutline"></div>
+        <h6>
+            猜国家
+            <span class="symbol-1280"></span>
+            真心话大冒险
+            <span class="symbol-640"></span>
+            <span class="symbol-1280"></span>
+            数字记忆
+            <span class="symbol-1280"></span>
+            趣味冷知识
+            <span class="symbol-640"></span>
+            <span class="symbol-960"></span>
+            <span class="symbol-1280"></span>
+            我的农场
+            <span class="symbol-1280"></span>
+            我当宰相
+            <span class="symbol-1280"></span>
+            小青猜拳
+            <span class="symbol-640"></span>
+            <span class="symbol-960"></span>
+            <span class="symbol-1280"></span>
+            ......
+        </h6>
+        <a class="icon-con"><img src="../img/game-plus.png"/></a>
+    </div>
+</div>
+
+
+<!-- designer -->
+<div class="designer">
+    <div class="designer-box">
+        <h3 class="animate">
+            国际顶尖电声大师
+            <span class="symbol-1280"></span>
+            领衔设计
+        </h3>
+        <ul>
+            <li>
+                <h2>HARMAN<em class="symbol-960"></em>国际高级电音工程师</h2>
+                <span><img src="../img/designer-name-one.png"/></span>
+                <h6>20多年电声工程设计经验</h6>
+            </li>
+            <li>
+                <h2>JBL<em class="symbol-960"></em>首席电音工程师</h2>
+                <span><img src="../img/designer-name-two.png"/></span>
+                <h6>42年电声工程设计经验</h6>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- ai -->
+<div class="ai">
+    <div class="ai-box animate">
+        <h3>
+            搭载百度人工智能AI系统
+        </h3>
+        <h4>
+            支持百度 DuerOS
+            <span class="symbol-1280"></span>
+            不仅音频内容多，还是聪明的好帮手
+        </h4>
+    </div>
+</div>
+
+<!-- sepcs -->
+<div class="sepcs">
+    <div class="sepcs-box">
+        <h2 class="animate">技术规格</h2>
+        <h3><img src="../img/sepcs-bg-1920.png"/></h3>
+        <div class="sepcs-640"><img src="../img/sepcs-bg-640.png" alt=""></div>
+        <ul class="animate">
+            <li>
+                <h4>外观、尺寸和重量</h4>
+                <div class="intro clearfix">
+                    <p>颜色：冰雪白 | 深海蓝 | 熔岩红 </p>
+                    <p>尺寸：160X160X255mm</p>
+                    <p>重量：1.8kg</p>
+                    <p>材质：纯棉氨纶混合型网布</p>
+                </div>
+            </li>
+            <li>
+                <h4>材质</h4>
+                <div class="intro clearfix">
+                    <p>扬声器：5.25寸重低音扬声器 1寸高音扬声器</p>
+                    <p>主芯片：ARM4核</p>
+                    <p>电源适配：DC 18 V / 2A 30W</p>
+                    <p>频率范围：2.5KHz~28KHz</p>
+                    <p>专利技术：360°导音锥(Constant horn directivity专利)</p>
+                </div>
+            </li>
+            <li>
+                <h4>连接方式</h4>
+                <div class="intro clearfix">
+                    <p>连接： 2.4G WiFi 蓝牙4.0 支持A2DP音乐播放</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<%- include('./public/footer') %>
+<%- include('../../libs/html/footer', {
+plugin: ['../js/swiper.min.js'],
+private: ['../js/public.js', '../js/index.js'],
+statistics: ''
+}) %>

@@ -1,0 +1,259 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:18
+ * Description：hello-xiaoqing
+ */
+@import "../../../libs/scss/normalize";
+@import '../../../libs/scss/rem';
+
+/* hello-xiaoqing */
+.hello-xiaoqing {
+    height: 1100px;
+    background: url("../../img/product-first-1920.jpg") no-repeat center;
+    transition: all 0.5s ease 0s;
+
+    &.blue {
+        background: url("../../img/product-first-1920-blue.jpg") no-repeat center;
+
+        ul li {
+            color: #d1f4ff;
+
+            i {
+                background: #d1f4ff;
+            }
+        }
+    }
+
+    &.white {
+        background: url("../../img/product-first-1920-white.jpg") no-repeat center;
+
+        .slogan {
+            color: #37474f;
+
+            h5 {
+                background: url("../../img/svg/hello-xiaoqing-white.svg") no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        ul li {
+            color: #b0bec5;
+
+            &.active,
+            &:hover {
+                color: #37474f;
+            }
+
+            i {
+                background: #b0bec5;
+            }
+        }
+    }
+
+    .hello-xiaoqing-box {
+        position: relative;
+        max-width: 1260px;
+        height: 100%;
+        margin: 0 auto;
+
+        .hello-slogan {
+            margin: 0 auto;
+            padding-top: 170px;
+            width: 450px;
+        }
+    }
+
+    .slogan {
+        width: 395px;
+        margin: 30px auto;
+        color: #fff;
+        text-align: center;
+        transition: all 0.5s ease 0s;
+        opacity: 0;
+
+        h5 {
+            background: url("../../img/svg/hello-xiaoqing.svg") no-repeat center;
+            background-size: contain;
+            height: 90px;
+            width: 100%;
+            transition: all 0.5s ease 0s;
+        }
+
+        p {
+            font-size: 26px;
+            margin-top: 15px;
+        }
+    }
+
+    .breath-light {
+        margin: 160px auto 0;
+        height: 10px;
+        width: ( 10 + 10 + 10 ) * 11 + px;
+        text-align: center;
+
+        span {
+            float: left;
+            margin: 0 10px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 100%;
+            box-shadow: 0 0 10px 0 #fff;
+            display: block;
+            height: 10px;
+            opacity: 0;
+            width: 10px;
+            transition: all 0.2s ease 0s;
+
+            em {
+                margin: -2px 0 0 -2px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                display: none;
+                height: 4px;
+                width: 4px;
+                background: rgba(255, 255, 255, 0.6);
+                border-radius: 100%;
+                box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.8);
+            }
+
+            &.active {
+                opacity: 1;
+            }
+
+            &.green {
+                background: rgba(130, 255, 10, 0.8);
+                box-shadow: 0 0 10px 0 rgba(130, 255, 10, 1);
+
+                em {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    ul {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+
+        li {
+            float: left;
+            position: relative;
+            width: 33.3333%;
+            cursor: pointer;
+            color: #ffc2c5;
+            font-size: 20px;
+            text-align: center;
+            transition: all 0.5s ease 0s;
+
+            &.active,
+            &:hover {
+                color: #fff;
+                font-weight: bold;
+            }
+
+            i {
+                position: absolute;
+                top: 23px;
+                background: #ffc2c5;
+                border-radius: 5px;
+                display: block;
+                height: 5px;
+                width: 5px;
+                transition: all 0.5s ease 0s;
+
+                &:first-child {
+                    left: 0;
+                }
+
+                &:last-child {
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .hello-xiaoqing {
+        width: 100%;
+        overflow: hidden;
+        background: url("../../img/product-first-640.jpg") no-repeat center;
+        background-size: cover;
+        height: rem(1008);
+
+        &.blue {
+            background: url("../../img/product-first-640-blue.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        &.white {
+            background: url("../../img/product-first-640-white.jpg") no-repeat center;
+            background-size: cover;
+        }
+
+        .hello-xiaoqing-box {
+            .hello-slogan {
+                padding-top: rem(190);
+                width: rem(394);
+            }
+        }
+
+        .slogan {
+            width: 100%;
+            margin: 0 auto rem(25);
+            padding-top: 30px;
+
+            h5 {
+                height: rem(85);
+            }
+
+            p {
+                font-size: rem(28);
+                margin-top: rem(30);
+            }
+        }
+
+        ul {
+            height: rem(50);
+            line-height: rem(50);
+            margin-top: rem(-30);
+
+            li {
+                font-size: rem(20);
+
+                i {
+                    top: rem(23);
+                    border-radius: rem(5);
+                    height: rem(5);
+                    width: rem(5);
+                }
+            }
+        }
+
+        .breath-light {
+            margin: rem(90) auto 0;
+            height: rem(10);
+            width: rem((8 + 8 + 10) * 11);
+            text-align: center;
+
+            span {
+                margin: 0 rem(8);
+                height: rem(10);
+                width: rem(10);
+
+                em {
+                    margin: rem(-2) 0 0 rem(-2);
+                    height: rem(4);
+                    width: rem(4);
+                    box-shadow: 0 0 rem(10) 0 rgba(255, 255, 255, 0.8);
+                }
+
+                &.green {
+                    box-shadow: 0 0 rem(10) 0 rgba(100, 255, 100, 1);
+                }
+            }
+        }
+    }
+}

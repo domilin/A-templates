@@ -1,0 +1,407 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-16 10:54
+ * Description：footer
+ */
+@import '../../../libs/scss/rem';
+
+footer {
+    background: #fff;
+
+    .footer-con {
+        margin: 0 auto;
+        width: 1140px;
+        color: #1a1a1a;
+        font-size: 14px;
+    }
+
+    .contact {
+        position: relative;
+        margin-bottom: 40px;
+        padding: 65px 0 30px;
+        border-bottom: 1px solid #e3e3e3;
+        // height: 60px;
+
+        .link {
+            float: left;
+
+            a {
+                margin-right: 35px;
+                padding-right: 35px;
+                border-right: 1px solid #e3e3e3;
+                display: inline-block;
+                color: #646464;
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+
+        .phone {
+            float: right;
+
+            h3 {
+                margin-bottom: 15px;
+                color: #646464;
+                font-size: 26px;
+            }
+
+            p {
+                color: #969696;
+                font-size: 14px;
+                text-align: right;
+            }
+        }
+
+        .share {
+            position: absolute;
+            width: 275px;
+            right: 0;
+            bottom: -65px;
+
+            span {
+                position: relative;
+                width: 90px;
+                float: left;
+                height: 30px;
+                border-right: 1px solid #e3e3e3;
+                cursor: pointer;
+
+                .xcx-ewm,
+                .wx-ewm {
+                    position: absolute;
+                    top: -190px;
+                    left: -30px;
+                    width: 148px;
+                    height: 170px;
+                    background: #fff;
+                    border: 1px #e3e3e3 solid;
+                    border-radius: 5px;
+                    display: none;
+
+                    h5 {
+                        width: 100%;
+                        text-align: center;
+                        font-size: 18px;
+                        color: #666;
+                        line-height: 50px;
+                    }
+
+                    img {
+                        width: 108px;
+                        height: 108px;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        bottom: -8px;
+                        left: 50%;
+                        margin-left: -5px;
+                        border-left: 7px solid transparent;
+                        border-right: 7px solid transparent;
+                        border-top: 7px solid #e3e3e3;
+                        content: "";
+                        width: 0;
+                    }
+                }
+
+                &:last-child {
+                    border: none;
+                }
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                &.xcx {
+                    img {
+                        width: 30%;
+                    }
+
+                    .xcx-ewm {
+                        img {
+                            width: 108px;
+                            height: 108px;
+                        }
+                    }
+                }
+
+                &.wx {
+                    img {
+                        width: 40%;
+                    }
+
+                    .wx-ewm {
+                        img {
+                            width: 108px;
+                            height: 108px;
+                        }
+                    }
+                }
+
+                &.sina {
+                    img {
+                        width: 40%;
+                    }
+                }
+            }
+        }
+    }
+
+    .adress-share {
+        padding-bottom: 40px;
+
+        .adress {
+            float: left;
+            color: #7d7d7d;
+            font-size: 12px;
+
+            span {
+                display: block;
+                color: #bdbdbf;
+                line-height: 32px;
+            }
+        }
+
+        .phone {
+            float: right;
+        }
+    }
+}
+
+/* 适配 */
+@media screen and (max-width: 1280px) and (min-width: 960px) {
+    footer {
+        .footer-con {
+            margin: 0 auto;
+            width: 940px;
+
+            .contact {
+                padding: 80px 0 10px;
+                margin: 0 10px 40px;
+
+                .link {
+                    a {
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    footer {
+        .footer-con {
+            width: 100%;
+
+            .contact {
+                width: 100%;
+                padding: 30px 0;
+
+                .link {
+                    width: 63%;
+                    margin: 10px;
+                    line-height: 40px;
+
+                    a {
+                        margin-right: 15px;
+                        line-height: 35px;
+                        width: 70px;
+                        text-align: center;
+
+                        &:nth-child(3) {
+                            border-right: none;
+                        }
+                    }
+                }
+
+                .phone {
+                    width: 30%;
+                    margin: 20px 10px 0 0;
+
+                    h3 {
+                        font-size: 22px;
+                        text-align: right;
+                    }
+                }
+            }
+
+            .adress-share {
+                width: 90%;
+
+                .adress {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    footer {
+        .footer-con {
+            margin: 0 auto;
+            width: rem(600);
+
+            .contact {
+                width: 100%;
+                height: auto;
+                margin-bottom: 0;
+                border-bottom: none;
+                padding: rem(20) 0;
+
+                .link {
+                    width: 100%;
+                    margin: 0;
+
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: rem(80);
+                        line-height: rem(80);
+                        margin: 0 auto;
+                        padding: 0;
+                        border-bottom: 1px solid #e3e3e3;
+                        border-right: none;
+                        text-align: left;
+                        background: url("../../img/left.png") right no-repeat;
+
+                        &:nth-child(3) {
+                            border-right: none;
+                        }
+                    }
+                }
+
+                .phone {
+                    width: rem(300);
+                    float: left;
+
+                    h3,
+                    p {
+                        text-align: left;
+                    }
+
+                    p {
+                        font-size: rem(22);
+                    }
+
+                    h3 {
+                        font-size: rem(32);
+                        margin-bottom: rem(10);
+                    }
+                }
+
+                .share {
+                    position: absolute;
+                    right: 0;
+                    width: rem(275);
+                    bottom: rem(50);
+
+                    span {
+                        position: relative;
+                        width: rem(90);
+                        float: left;
+                        height: 20px;
+                        border-right: 1px solid #e3e3e3;
+
+                        .xcx-ewm,
+                        .wx-ewm {
+                            position: absolute;
+                            top: rem(-190);
+                            left: rem(-30);
+                            width: rem(148);
+                            height: rem(170);
+                            background: #fff;
+                            border: 1px #e3e3e3 solid;
+                            border-radius: rem(5);
+                            display: none;
+
+                            h5 {
+                                width: 100%;
+                                text-align: center;
+                                font-size: rem(22);
+                                color: #666;
+                                line-height: rem(50);
+                            }
+
+                            img {
+                                width: rem(108);
+                                height: rem(108);
+                            }
+
+                            &:after {
+                                position: absolute;
+                                bottom: rem(-10);
+                                left: 50%;
+                                margin-left: rem(-10);
+                                border-left: 5px solid transparent;
+                                border-right: 5px solid transparent;
+                                border-top: 5px solid #e3e3e3;
+                                content: "";
+                                width: 0;
+                            }
+                        }
+
+                        &:last-child {
+                            border: none;
+                        }
+
+                        img {
+                            display: block;
+                            margin: 0 auto;
+                        }
+
+                        &.xcx {
+                            img {
+                                width: rem(33);
+                                height: rem(33);
+                            }
+
+                            .xcx-ewm {
+                                img {
+                                    width: rem(108);
+                                    height: rem(108);
+                                }
+                            }
+                        }
+
+                        &.wx {
+                            img {
+                                width: rem(41);
+                                height: rem(34);
+                            }
+
+                            .wx-ewm {
+                                img {
+                                    width: rem(108);
+                                    height: rem(108);
+                                }
+                            }
+                        }
+
+                        &.sina {
+                            img {
+                                width: rem(40);
+                                height: rem(32);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .adress-share {
+                width: 100%;
+                margin-top: rem(10);
+                line-height: rem(35);
+
+                .adress {
+                    margin: 0;
+                    font-size: rem(20);
+                }
+            }
+        }
+    }
+}

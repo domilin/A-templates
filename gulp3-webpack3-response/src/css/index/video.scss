@@ -1,0 +1,95 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:23
+ * Description：video
+ */
+@import '../../../libs/scss/rem';
+
+.video {
+    background: url("../../img/video-bg-1920.jpg") center no-repeat;
+    height: 1250px;
+
+    .video-box {
+        margin: 0 auto;
+        position: relative;
+        height: 100%;
+        max-width: 1260px;
+        color: #fff;
+
+        .video-cont {
+            margin-left: -300px;
+            position: absolute;
+            left: 50%;
+            top: 700px;
+            width: 600px;
+            text-align: center;
+
+            .slogan {
+                font-size: 72px;
+                font-weight: bold;
+                margin-top: 30px;
+                opacity: 0;
+            }
+
+            .video-btn {
+                margin: 55px auto;
+                height: 241px;
+                width: 241px;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .video-text {
+                font-size: 32px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .video {
+        background: url("../../img/video-bg-960.jpg") no-repeat center;
+        height: 867px;
+
+        .video-box {
+            .video-cont {
+                top: 320px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .video {
+        background: url("../../img/video-bg-640.jpg") center no-repeat;
+        background-size: cover;
+        height: rem(700);
+
+        .video-box {
+            .video-cont {
+                width: rem(400);
+                top: rem(320);
+                margin-left: rem(-400/2);
+
+                .slogan {
+                    font-size: rem(48);
+                }
+
+                .video-btn {
+                    height: rem(155);
+                    width: rem(155);
+                    margin: rem(40) auto rem(50);
+                    cursor: pointer;
+                }
+
+                .video-text {
+                    font-size: rem(24);
+                }
+            }
+        }
+    }
+}
+

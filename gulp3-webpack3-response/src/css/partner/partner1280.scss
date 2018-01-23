@@ -1,0 +1,428 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:18
+ * Description：gt 1280
+ */
+
+@media screen and (min-width: 1280px) {
+    .partner {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        //height: 100vh;
+
+        .content {
+            width: 100%;
+            position: relative;
+            height: 100%;
+            font-size: 0;
+            //transition: all 0.5s;
+
+            .info_640 {
+                display: none;
+            }
+
+            .title {
+                font-size: 30px;
+                color: #d04f51;
+                margin: 118px auto 0;
+                letter-spacing: 5px;
+                text-align: center;
+                font-family: fzlttx;
+                font-weight: bolder;
+            }
+
+            .title_en {
+                width: 497px;
+                height: 42px;
+            }
+
+            .page1 {
+                background: url("../../img/partner/page1_1920_bg.jpg") no-repeat center / 100%;
+                background-size: cover;
+                height: 731px;
+
+                .contact {
+                    position: relative;
+                    width: 1200px;
+                    margin: 0 auto;
+                    height: 100%;
+                    color: #fff;
+                    font-family: 'fzlttx';
+
+                    .agent {
+                        //font-family: 'fzltth';
+                        letter-spacing: 12px;
+                        font-weight: bold;
+                        font-size: 50px;
+                        position: absolute;
+                        top: 280px;
+                        left: 60px;
+                    }
+
+                    .info {
+                        height: 130px;
+                        width: 420px;
+                        position: absolute;
+                        top: 385px;
+                        left: 60px;
+
+                        .telSection {
+                            margin: 20px -3px;
+                        }
+
+                        .name {
+                            font-size: 20px;
+                            color: rgba(255, 255, 255, 0.8);
+                        }
+
+                        .seperate,
+                        .name_en {
+                            font-size: 20px;
+                            color: rgba(255, 255, 255, 0.3);
+                        }
+
+                        .seperate {
+                            margin: 0 8px;
+                        }
+
+                        .tel {
+                            font-size: 36px;
+                        }
+                    }
+
+                    .img {
+                        width: 515px;
+                        height: 620px;
+                        position: absolute;
+                        background: url("../../img/partner/page1_1920_xiaoqing.png") no-repeat center / 100%;
+                        background-size: cover;
+                        right: 80px;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            .page2 {
+                overflow: hidden;
+                width: 1200px;
+                height: 480px;
+                margin: 0 auto;
+                position: relative;
+                text-align: center;
+
+                .title_en {
+                    background: url("../../img/partner/recruit.png") no-repeat center / 100%;
+                    background-size: cover;
+                    margin: 29px auto 42px;
+                }
+
+                .desc {
+                    font-size: 16px;
+                    padding: 0 22px;
+                    letter-spacing: 1px;
+                    line-height: 35px;
+                    color: #333;
+                    font-family: fzlttx;
+                    font-weight: bolder;
+                }
+            }
+
+            .page3 {
+                overflow: hidden;
+                height: 670px;
+                text-align: center;
+                background: #2e2c38;
+
+                .advantage {
+                    width: 1200px;
+                    position: relative;
+                    margin: 0 auto;
+
+                    .title {
+                        color: #fff;
+                    }
+
+                    .title_en {
+                        background: url("../../img/partner/advantage.png") no-repeat center / 100%;
+                        background-size: cover;
+                        margin: 29px auto 60px;
+                    }
+
+                    .items {
+                        padding: 0 60px;
+
+                        .item_title {
+                            font-size: 20px;
+                            color: rgba(255, 255, 255, 0.9);
+                            letter-spacing: 2px;
+                            margin-bottom: 20px;
+                        }
+
+                        .item_desc {
+                            line-height: 26px;
+                            font-size: 16px;
+                            color: rgba(255, 255, 255, 0.5);
+                            padding: 0 35px;
+                        }
+
+                        .item {
+                            display: inline-block;
+                            width: 250px;
+                            height: 250px;
+                            border-right: 1px solid rgba(111, 111, 111, 0.1);
+
+                            img {
+                                margin: 38px 0 41px;
+                            }
+                        }
+
+                        .item4 {
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+            .page4 {
+                height: 922px;
+                overflow: hidden;
+                width: 1200px;
+                margin: 0 auto;
+                position: relative;
+
+                .title_en {
+                    background: url("../../img/partner/support.png") no-repeat center / 100%;
+                    background-size: cover;
+                    margin: 29px auto 60px;
+                }
+
+                .items {
+                    text-align: center;
+
+                    .item {
+                        text-align: left;
+                        display: inline-block;
+                        width: 385px;
+                        height: 168px;
+                        border: 1px solid #e4e3e3;
+                        border-radius: 4px;
+                        position: relative;
+                        font-family: fzlttx;
+                        margin-bottom: 10px;
+
+                        &:nth-of-type(3n - 1) {
+                            margin: 0 10px 10px;
+                        }
+
+                        &:nth-of-type(1) {
+                            .img {
+                                width: 51px;
+                                height: 51px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_1.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(2) {
+                            .img {
+                                width: 53px;
+                                height: 46px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_2.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(3) {
+                            .img {
+                                width: 47px;
+                                height: 49px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_3.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(4) {
+                            .img {
+                                width: 50px;
+                                height: 48px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_4.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(5) {
+                            .img {
+                                width: 58px;
+                                height: 41px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_5.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(6) {
+                            .img {
+                                width: 36px;
+                                height: 44px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_6.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(7) {
+                            .img {
+                                width: 43px;
+                                height: 50px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_7.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(8) {
+                            .img {
+                                width: 48px;
+                                height: 49px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_8.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(9) {
+                            .img {
+                                width: 49px;
+                                height: 43px;
+                                position: absolute;
+                                top: 35px;
+                                left: 30px;
+                                background: url("../../img/partner/s_9.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        .item_title {
+                            position: absolute;
+                            top: 33px;
+                            left: 104px;
+                            font-size: 16px;
+                            font-weight: bolder;
+                        }
+
+                        .item_desc {
+                            position: absolute;
+                            left: 104px;
+                            top: 63px;
+                            width: 252px;
+                            height: 80px;
+                            font-size: 14px;
+                            color: #666;
+                            font-weight: bolder;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+
+            .page5 {
+                overflow: hidden;
+                height: 758px;
+                text-align: center;
+                background: #d04f51;
+                font-size: 20px;
+
+                .method {
+                    width: 1200px;
+                    position: relative;
+                    margin: 0 auto;
+
+                    .title {
+                        color: #fff;
+                    }
+
+                    .title_en {
+                        background: url("../../img/partner/join.png") no-repeat center / 100%;
+                        background-size: cover;
+                        margin: 29px auto 60px;
+                    }
+
+                    .phcolor {
+                        color: #999;
+                    }
+
+                    .form {
+                        position: relative;
+                        text-align: center;
+
+                        .hink {
+                            position: absolute;
+                            width: 300px;
+                            height: 50px;
+                            left: 50%;
+                            margin-left: -150px;
+                            border-radius: 5px;
+                            background: #eee;
+                            font-size: 16px;
+                            line-height: 50px;
+                            text-align: center;
+                            top: 100px;
+                            color: #7d8f9b;
+                            display: none;
+                        }
+
+                        input,
+                        textarea {
+                            display: inline-block;
+                            border: none;
+                            outline: none;
+                            font-size: 16px;
+                            border-radius: 4px;
+                        }
+
+                        input {
+                            text-indent: 15px;
+                            width: 550px;
+                            height: 40px;
+                            margin: 0 20px 20px;
+                        }
+
+                        .msg {
+                            text-indent: 5px;
+                            padding: 10px;
+                            resize: none;
+                            width: 1126px;
+                            height: 110px;
+                            border: none;
+                            line-height: 25px;
+                        }
+                    }
+
+                    .submit {
+                        width: 176px;
+                        height: 50px;
+                        padding: 0;
+                        text-indent: 0;
+                        border: 1px solid #fff;
+                        color: #fff;
+                        background: transparent;
+                        margin-top: 60px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

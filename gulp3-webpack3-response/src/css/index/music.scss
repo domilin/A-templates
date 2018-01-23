@@ -1,0 +1,36 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-12 15:39
+ * Description：music
+ */
+@import '../../../libs/scss/rem';
+
+.music {
+    background: url("../../img/music-bg-1920.jpg") no-repeat center;
+    height: 1450px;
+
+    .music-box {
+        margin: 0 auto;
+        padding: 1180px 40px 0;
+        max-width: 380px;
+        text-align: center;
+        opacity: 0;
+    }
+
+    h4 {
+        color: #fff;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .music {
+        background: url("../../img/music-bg-640.jpg") no-repeat center;
+        background-size: cover;
+        height: rem(744);
+
+        .music-box {
+            padding: rem(480) 0 0;
+            max-width: rem(480);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": [
+    "./src/css/public/*"
+  ],
+  "rules": {
+    "indentation": 4,
+    "selector-pseudo-element-colon-notation": "single",
+    "at-rule-no-unknown": null,
+    "font-family-no-duplicate-names": null,
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "font-smoothing"
+        ]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global"
+        ]
+      }
+    ]
+  }
+}

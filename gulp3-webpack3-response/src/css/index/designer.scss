@@ -1,0 +1,136 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-12 15:19
+ * Description：designer
+ */
+@import '../../../libs/scss/rem';
+
+.designer {
+    background: url("../../img/designer-bg-1920.jpg") no-repeat center;
+    height: 900px;
+
+    .designer-box {
+        margin: 0 auto;
+        padding: 100px 40px 0;
+        max-width: 1140px;
+        text-align: center;
+        color: #fff;
+    }
+
+    h3 {
+        opacity: 0;
+
+        .symbol-1280 {
+            display: block;
+        }
+    }
+
+    ul {
+        margin-top: 460px;
+
+        li {
+            float: left;
+
+            &:last-child {
+                float: right;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            span {
+                display: block;
+                height: 100px;
+
+                img {
+                    margin-top: 30px;
+                }
+            }
+
+            h6 {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .designer {
+        .designer-box {
+            max-width: 880px;
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .designer {
+        background: url("../../img/designer-bg-960.jpg") no-repeat center;
+
+        .designer-box {
+            max-width: 620px;
+        }
+
+        ul {
+            margin-top: 420px;
+
+            li {
+                .symbol-960 {
+                    display: block;
+                }
+
+                span {
+                    height: 90px;
+
+                    img {
+                        margin-top: 25px;
+                    }
+                }
+
+                h2 {
+                    font-size: 24px;
+                }
+
+                h6 {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .designer {
+        background: url("../../img/designer-bg-640.jpg") no-repeat center;
+        background-size: cover;
+        height: rem(900);
+
+        .designer-box {
+            padding: rem(100) 0 0;
+            width: rem(480);
+        }
+
+        ul {
+            margin-top: rem(460);
+
+            li {
+                h2 {
+                    font-size: rem(24);
+                }
+
+                span {
+                    height: rem(80);
+
+                    img {
+                        margin-top: rem(( 80 - 44 ) / 2);
+                        height: rem(44);
+                    }
+                }
+
+                h6 {
+                    font-size: rem(20);
+                }
+            }
+        }
+    }
+}

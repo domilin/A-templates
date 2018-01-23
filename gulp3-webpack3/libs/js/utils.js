@@ -5,11 +5,8 @@
  */
 
 /**
- * INTRO: <=IE8
  * JS：browserTips()
  */
-
-const userAgent = window.navigator.userAgent.toLowerCase()
 
 const browserTips = () => {
     if ($('#browserTipsMask').length === 0) {
@@ -28,18 +25,126 @@ const browserTips = () => {
 
         const $browserTipsMask = $('#browserTipsMask')
         const $browserTips = $('#browserTips')
-        if ((userAgent.match(/msie\s\d+/) && userAgent.match(/msie\s\d+/)[0]) || (userAgent.match(/trident\s?\d+/) && userAgent.match(/trident\s?\d+/)[0])) {
-            const ieVersion = userAgent.match(/msie\s\d+/)[0].match(/\d+/)[0] || userAgent.match(/trident\s?\d+/)[0]
-            if (ieVersion < 9) {
-                $browserTipsMask.show()
-                $browserTips.show()
-            }
-        }
+        $browserTipsMask.show()
+        $browserTips.show()
 
         $('#browserTipsClose').click(function () {
             $browserTipsMask.hide()
             $browserTips.hide()
         })
+    }
+}
+
+/**
+ * HTML：<div class="news-list" id="newsList"></div>
+ * CSS：.news-list .paging-nav a{};   .news-list .paging-list li a(span)/time{};   .news-list .paging-btn a{};
+ * JS：paging({
+        element: '#newsList',
+        url: 'http://opm.8864.com/api/website/getallcolumncontent',
+        detailHtmlFileName: 'detial',
+        pageSize: 14,
+        columnIdName: [{id: 199, name: '新闻'}, {id: 517, name: '活动'}, {id: 519, name: '公告'}, {id: 521, name: '攻略'}]
+    })
+ */
+const paging = (obj) => {
+    const getArticleList = (columnId, pageNum) => {
+        $.ajax({
+            type: 'GET',
+            url: obj.url,
+            data: {
+                column_id: columnId,
+                type: 'article',
+                page: pageNum,
+                pageSize: obj.pageSize
+            },
+            dataType: 'jsonp',
+            success: function (data) {
+                let list = ''
+                $.each(data.data.data, function (i, d) {
+                    let columnName = ''
+                    for (let value of obj.columnIdName) {
+                        if (parseInt(d.column_id) === parseInt(value.id)) {
+                            columnName = value.name
+                        }
+                    }
+
+                    list += `<li>
+<a target="_blank" href="${obj.detailHtmlFileName}.html?column_id=${d.column_id}&id=${d.id}"><span>[${columnName}]</span>${d.title}</a>
+<time>${d.create_time.split(' ')[0]}</time>
+</li>`
+                })
+                $(listEle).html(list)
+
+                const dataIn = data.data
+                if (dataIn.totalPage > 1) {
+                    const prevBtn = (parseInt(dataIn.page) - 1) === 0 ? '' : `<a data-page="${(parseInt(dataIn.page) - 1)}" data-column="${columnId}">上一页</a>`
+
+                    let page = `<a data-page="1" data-column="${columnId}">首页</a>${prevBtn}`
+
+                    for (let i = 1; i <= dataIn.totalPage; i++) {
+                        let classStyle = ''
+                        if (parseInt(i) === parseInt(dataIn.page)) {
+                            classStyle = 'active'
+                        }
+                        page += `<a data-page="${i}" class="${classStyle}" data-column="${columnId}">${i}</a>`
+                    }
+
+                    const nextBtn = parseInt(dataIn.page) === dataIn.totalPage ? '' : `<a data-page="${(parseInt(dataIn.page) + 1)}" data-column="${columnId}">下一页</a>`
+
+                    page += nextBtn + `<a data-page="${dataIn.totalPage}" data-column="${columnId}">末页</a>`
+
+                    $(btnEle).html(page)
+                } else {
+                    $(btnEle).html('')
+                }
+            }
+        })
+    }
+
+    let navStr = ''
+    let idAll = ''
+    for (let value of obj.columnIdName) {
+        idAll += `${value.id},`
+        navStr += `<a data-column="${value.id}">${value.name}</a>`
+    }
+    const navStrAll = `<a class="active" data-column="${idAll}">最新</a>${navStr}`
+
+    const pagingStr = `<div class="paging-nav">${navStrAll}</div>
+    <div class="paging-con">
+        <ul class="paging-list"></ul>
+        <div class="paging-btn"></div>
+    </div>`
+    $(obj.element).html(pagingStr)
+
+    const navEle = `${obj.element} .paging-nav`
+    const listEle = `${obj.element} .paging-list`
+    const btnEle = `${obj.element} .paging-btn`
+
+    getArticleList(idAll, 1)
+    $(document).on('click', btnEle + ' a', function () {
+        getArticleList($(this).data('column'), $(this).data('page'))
+    })
+    $(document).on('click', navEle + ' a', function () {
+        getArticleList($(this).data('column'), 1)
+
+        $(navEle + ' a').removeClass('active')
+        $(this).addClass('active')
+    })
+}
+
+/**
+ * ipad:90或-90横屏; ipad:0或180竖屏; Andriod:0或180横屏; Andriod:90或-90竖屏
+ * JS：screenOrient()/$(window).bind('orientationchange', function(e){screenOrient()})
+ */
+const screenOrient = () => {
+    if (window.orientation === 0 || window.orientation === 180) {
+        $('body').attr('class', 'portrait')
+        window.orientation = 'portrait'
+        return false
+    } else if (window.orientation === 90 || window.orientation === -90) {
+        $('body').attr('class', 'landscape')
+        window.orientation = 'landscape'
+        return false
     }
 }
 
@@ -63,6 +168,8 @@ const remRootFontSize = (fontSize, designWidth) => {
 }
 
 const isPc = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+
     const Agents = ['android', 'iphone', 'ipad', 'ipod', 'windows phone']
     let flag = true
     for (let i = 0; i < Agents.length; i++) {
@@ -75,6 +182,8 @@ const isPc = () => {
 }
 
 const isIos = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+
     let flag = false
     if (userAgent.indexOf('iphone') > 0 || userAgent.indexOf('ipad') > 0) {
         flag = true
@@ -83,6 +192,8 @@ const isIos = () => {
 }
 
 const isAndroid = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+
     let flag = false
     if (userAgent.indexOf('android') > 0) {
         flag = true
@@ -91,6 +202,8 @@ const isAndroid = () => {
 }
 
 const isPad = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+
     let flag = false
     if (userAgent.indexOf('ipad') > 0) {
         flag = true
@@ -99,6 +212,8 @@ const isPad = () => {
 }
 
 const isWeixin = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+
     let flag = false
     if (userAgent.indexOf('micromessenger') > 0) {
         flag = true
@@ -107,6 +222,8 @@ const isWeixin = () => {
 }
 
 const ieVersion = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase()
+
     return userAgent.match(/msie\s\d+/)[0].match(/\d+/)[0] || userAgent.match(/trident\s?\d+/)[0]
 }
 
@@ -118,22 +235,6 @@ const getQueryString = (name) => {
     const r = window.location.search.substr(1).match(reg)
     if (r != null) return unescape(r[2])
     return null
-}
-
-/**
- * ipad:90或-90横屏; ipad:0或180竖屏; Andriod:0或180横屏; Andriod:90或-90竖屏
- * JS：screenOrient()/$(window).bind('orientationchange', function(e){screenOrient()})
- */
-const screenOrient = () => {
-    if (window.orientation === 0 || window.orientation === 180) {
-        $('body').attr('class', 'portrait')
-        window.orientation = 'portrait'
-        return false
-    } else if (window.orientation === 90 || window.orientation === -90) {
-        $('body').attr('class', 'landscape')
-        window.orientation = 'landscape'
-        return false
-    }
 }
 
 /**
@@ -155,7 +256,7 @@ const weixinAutoPlay = (ele) => {
 }
 
 /**
- * JS：goMob('url')
+ * JS：goToMobile('url')
  */
 const goToMobile = (url) => {
     if (!isPc()) {
@@ -167,6 +268,42 @@ const goToMobile = (url) => {
             $pageLoading.remove()
         }, 300)
     }
+}
+
+/**
+ * JS：pageLoadingHide()
+ */
+const pageLoadingHide = (pixel) => {
+    const $html = $('html')
+    const pageMobile = () => {
+        if (isPc() === false) {
+            $html.addClass('page-mobile')
+        } else {
+            if (pixel) {
+                if (parseInt($(window).width()) <= pixel) {
+                    $html.addClass('page-mobile')
+                } else {
+                    $html.removeClass('page-mobile')
+                }
+            } else {
+                $html.removeClass('page-mobile')
+            }
+        }
+    }
+
+    pageMobile()
+    window.addEventListener('orientationchange', function () {
+        pageMobile()
+    })
+    $(window).resize(function () {
+        pageMobile()
+    })
+
+    const $pageLoading = $('#pageLoading')
+    $pageLoading.removeClass('active')
+    setTimeout(() => {
+        $pageLoading.remove()
+    }, 300)
 }
 
 /**
@@ -218,7 +355,7 @@ const videoPlay = (ele, playFn, closeFn) => {
     if ($('#videoplayWrap').length === 0) {
         const videoplayHtml = `<div class="videoplay-wrap" id="videoplayWrap">
         <video src="" controls="controls" autoplay="autoplay">您的浏览器不支持该视频</video>
-            <a class="videoplay-close" id="videoplayClose"><img src="../img/videoplay-close.png" /></a>
+            <a class="videoplay-close" id="videoplayClose"><img src="../img/close-btn.png" /></a>
         </div><div class="videoplay-mask" id="videoplayMask"></div>`
 
         $('body').append(videoplayHtml)
@@ -281,6 +418,19 @@ const imgPop = (ele, widthSelf, heightSelf) => {
     const $imgCon = $('#imgCon')
     const $imgLoading = $('#imgLoading')
     const $imgConWrap = $('#imgConWrap')
+
+    const imgPopClose = () => {
+        $imgPop.hide()
+        $imgLoading.show()
+        $imgCon.attr('src', '')
+        $imgConWrap.css({
+            marginLeft: 'auto',
+            marginTop: 'auto',
+            height: 'auto',
+            width: 'auto',
+            visibility: 'hidden'
+        })
+    }
 
     $(document).on('click', ele, function () {
         $imgPop.show()
@@ -345,116 +495,6 @@ const imgPop = (ele, widthSelf, heightSelf) => {
     $(document).on('click', '#imgLoading', function () {
         imgPopClose()
     })
-
-    function imgPopClose () {
-        $imgPop.hide()
-        $imgLoading.show()
-        $imgCon.attr('src', '')
-        $imgConWrap.css({
-            marginLeft: 'auto',
-            marginTop: 'auto',
-            height: 'auto',
-            width: 'auto',
-            visibility: 'hidden'
-        })
-    }
-}
-
-/**
- * HTML：<div class="news-list" id="newsList"></div>
- * CSS：.news-list .paging-nav a{};   .news-list .paging-list li a(span)/time{};   .news-list .paging-btn a{};
- * JS：paging({
-        element: '#newsList',
-        url: 'http://opm.8864.com/api/website/getallcolumncontent',
-        detailHtmlFileName: 'detial',
-        pageSize: 14,
-        columnIdName: [{id: 199, name: '新闻'}, {id: 517, name: '活动'}, {id: 519, name: '公告'}, {id: 521, name: '攻略'}]
-    })
- */
-function paging (obj) {
-    let navStr = ''
-    let idAll = ''
-    for (let value of obj.columnIdName) {
-        idAll += `${value.id},`
-        navStr += `<a data-column="${value.id}">${value.name}</a>`
-    }
-    const navStrAll = `<a class="active" data-column="${idAll}">最新</a>${navStr}`
-
-    const pagingStr = `<div class="paging-nav">${navStrAll}</div>
-    <div class="paging-con">
-        <ul class="paging-list"></ul>
-        <div class="paging-btn"></div>
-    </div>`
-    $(obj.element).html(pagingStr)
-
-    const navEle = `${obj.element} .paging-nav`
-    const listEle = `${obj.element} .paging-list`
-    const btnEle = `${obj.element} .paging-btn`
-
-    getArticleList(idAll, 1)
-    $(document).on('click', btnEle + ' a', function () {
-        getArticleList($(this).data('column'), $(this).data('page'))
-    })
-    $(document).on('click', navEle + ' a', function () {
-        getArticleList($(this).data('column'), 1)
-
-        $(navEle + ' a').removeClass('active')
-        $(this).addClass('active')
-    })
-
-    function getArticleList (columnId, pageNum) {
-        $.ajax({
-            type: 'GET',
-            url: obj.url,
-            data: {
-                column_id: columnId,
-                type: 'article',
-                page: pageNum,
-                pageSize: obj.pageSize
-            },
-            dataType: 'jsonp',
-            success: function (data) {
-                let list = ''
-                $.each(data.data.data, function (i, d) {
-                    let columnName = ''
-                    for (let value of obj.columnIdName) {
-                        if (parseInt(d.column_id) === parseInt(value.id)) {
-                            columnName = value.name
-                        }
-                    }
-
-                    list += `<li>
-<a target="_blank" href="${obj.detailHtmlFileName}.html?column_id=${d.column_id}&id=${d.id}"><span>[${columnName}]</span>${d.title}</a>
-<time>${d.create_time.split(' ')[0]}</time>
-</li>`
-                })
-                $(listEle).html(list)
-
-                const dataIn = data.data
-                if (dataIn.totalPage > 1) {
-                    const prevBtn = (parseInt(dataIn.page) - 1) === 0 ? '' : `<a data-page="${(parseInt(dataIn.page) - 1)}" data-column="${columnId}">上一页</a>`
-
-                    let page = `<a data-page="1" data-column="${columnId}">首页</a>${prevBtn}`
-
-                    for (let i = 1; i <= dataIn.totalPage; i++) {
-                        let classStyle = ''
-                        if (parseInt(i) === parseInt(dataIn.page)) {
-                            classStyle = 'active'
-                        }
-                        page += `<a data-page="${i}" class="${classStyle}" data-column="${columnId}">${i}</a>`
-                    }
-
-                    const nextBtn = parseInt(dataIn.page) === dataIn.totalPage ? '' : `<a data-page="${(parseInt(dataIn.page) + 1)}" data-column="${columnId}">下一页</a>`
-
-                    page += nextBtn + `<a data-page="${dataIn.totalPage}" data-column="${columnId}">末页</a>`
-
-                    $(btnEle).html(page)
-                } else {
-                    $(btnEle).html('')
-                }
-            }
-        })
-    }
 }
 
 export {
@@ -470,6 +510,7 @@ export {
     weixinAutoPlay,
     getQueryString,
     goToMobile,
+    pageLoadingHide,
     gameDownloadM,
     lkLoadingHtml,
     videoPlay,

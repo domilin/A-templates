@@ -1,0 +1,166 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-13 15:15
+ * Description：sepcs
+ */
+@import '../../../libs/scss/rem';
+
+.sepcs {
+    background: #1a1a1a;
+    height: 1580px;
+    overflow: hidden;
+
+    .sepcs-box {
+        margin: 0 auto;
+        padding-top: 150px;
+        max-width: 834px;
+    }
+
+    h2 {
+        margin-bottom: 120px;
+        color: #fff;
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 30px;
+        opacity: 0;
+    }
+
+    h3 {
+        margin: 0 auto 100px;
+        display: block;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .sepcs-640 {
+        display: none;
+    }
+
+    ul {
+        padding-top: 30px;
+        opacity: 0;
+
+        li {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #5b5b5b;
+            color: #fff;
+
+            &:first-child p {
+                width: 33.33%;
+            }
+
+            &:nth-child(2) p {
+                width: 50%;
+
+                &:last-child {
+                    width: 100%;
+                }
+            }
+
+            &:last-child {
+                border: none;
+            }
+
+            h4 {
+                margin-bottom: 30px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            p {
+                float: left;
+                font-size: 18px;
+                line-height: 36px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .sepcs {
+        .sepcs-box {
+            max-width: 600px;
+        }
+
+        li {
+            &:first-child p {
+                width: 50%;
+            }
+
+            &:nth-child(2) p {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .sepcs {
+        height: rem(2000);
+
+        .sepcs-box {
+            padding-top: rem(70);
+            width: rem(380);
+        }
+
+        h2 {
+            margin-bottom: rem(80);
+            font-size: rem(26);
+        }
+
+        h3 {
+            display: none;
+        }
+
+        .sepcs-640 {
+            margin-bottom: 80px;
+            display: block;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h4 {
+            display: block;
+            margin: 0 auto rem(70);
+
+            img {
+                display: block;
+                width: rem(295);
+                height: rem(636);
+                margin: 0 auto;
+            }
+        }
+
+        ul {
+            li {
+                margin-bottom: rem(30);
+                padding-bottom: rem(20);
+                font-size: rem(26);
+
+                &:first-child p {
+                    width: 100%;
+                }
+
+                &:nth-child(2) p {
+                    width: 100%;
+                }
+
+                h4 {
+                    margin-bottom: rem(30);
+                    font-size: rem(24);
+                }
+
+                p {
+                    font-size: rem(18);
+                    line-height: rem(36);
+                }
+            }
+        }
+    }
+}

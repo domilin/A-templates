@@ -154,6 +154,20 @@ gulp.task('minifyHashImg', () => {
         .pipe(gulp.dest('rev/img'))
 })
 
+/* ----------------------------------------处理font---------------------------------------- */
+// 拷贝字体至dist
+gulp.task('copyFontsDist', () => {
+    return gulp.src(['src/fonts/*'])
+        .pipe(gulp.dest('dist/fonts'))
+        .pipe(connect.reload())
+})
+
+// 拷贝字体至build
+gulp.task('copyFontsBuild', () => {
+    return gulp.src(['src/fonts/*'])
+        .pipe(gulp.dest('build/fonts'))
+})
+
 /* ----------------------------------------清除dist/rev/build---------------------------------------- */
 // 清除dist目录
 gulp.task('cleanDist', () => {
@@ -234,6 +248,7 @@ gulp.task('pcCopyBuild', () => {
 gulp.task('connect', () => {
     connect.server({
         root: ['dist'],
+        host: config.host,
         port: config.port,
         livereload: true,
         middleware: (connect, opt) => {
@@ -247,13 +262,14 @@ gulp.task('watch', () => {
     gulp.watch(['src/css/*.scss', 'src/css/*/*.scss'], ['postcss'])
     gulp.watch(['src/js/*.js', 'src/js/*/*.js'], ['buildJs'])
     gulp.watch(['src/img/*.*', 'src/img/*/*.*'], ['copyImg'])
+    gulp.watch(['src/fonts/*.*'], ['copyFontsDist'])
 })
 
 /* ----------------------------------------开发与打包---------------------------------------- */
 // 移动端
 gulp.task('devM', (callback) => runSequence(
     'cleanDist',
-    ['mCopyDist', 'copyJsDist'],
+    ['mCopyDist', 'copyJsDist', 'copyFontsDist'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg'],
     ['postcss'],
     ['watch', 'connect'],
@@ -261,7 +277,7 @@ gulp.task('devM', (callback) => runSequence(
 ))
 gulp.task('buildM', (callback) => runSequence(
     'cleanBuildRev',
-    ['mCopyBuild'],
+    ['mCopyBuild', 'copyFontsBuild'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],
@@ -273,7 +289,7 @@ gulp.task('buildM', (callback) => runSequence(
 // PC端
 gulp.task('devPc', (callback) => runSequence(
     'cleanDist',
-    ['pcCopyDist', 'copyJsDist'],
+    ['pcCopyDist', 'copyJsDist', 'copyFontsDist'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'copyImg'],
     ['postcss'],
     ['watch', 'connect'],
@@ -281,7 +297,7 @@ gulp.task('devPc', (callback) => runSequence(
 ))
 gulp.task('buildPc', (callback) => runSequence(
     'cleanBuildRev',
-    ['pcCopyBuild'],
+    ['pcCopyBuild', 'copyFontsBuild'],
     ['htmlInclude', 'ejsInclude', 'buildJs', 'minifyHashImg', 'minifyImg'],
     ['postcss', 'hashJs'],
     ['minifyHtml', 'minifyCss'],

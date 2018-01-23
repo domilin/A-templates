@@ -1,0 +1,52 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-09 15:45
+ * Description：public
+ */
+@import "../../libs/scss/utils";
+@import "public/swiper.min";
+@import "public/buy";
+@import "public/nav";
+@import "public/footer";
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_536180_zkzfajluhctmx6r.eot');
+    src: url('//at.alicdn.com/t/font_536180_zkzfajluhctmx6r.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_536180_zkzfajluhctmx6r.woff') format('woff'), url('//at.alicdn.com/t/font_536180_zkzfajluhctmx6r.ttf') format('truetype'), url('//at.alicdn.com/t/font_536180_zkzfajluhctmx6r.svg#iconfont') format('svg');
+}
+
+@font-face {
+    font-family: 'fzltth';
+    font-style: normal;
+    src: url('../fonts/fzlt-th.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'fzlttx';
+    font-style: normal;
+    src: url('../fonts/fzlt-tx.TTF') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont";
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+}
+
+html,
+body {
+    height: 100%;
+    min-width: 320px;
+    font-family: "Microsoft YaHei UI", "Helvetica Neue", Ubuntu, "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+    //font-family: 'fantasy', 'fzltth';
+    //-webkit-font-smoothing: antialiased;
+}
+
+.symbol-1280,
+.symbol-960,
+.symbol-640 {
+    display: none;
+}
+

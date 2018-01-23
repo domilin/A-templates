@@ -1,0 +1,138 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:23
+ * Description：gt640
+ */
+
+@media screen and (max-width: 860px) and (min-width: 640px) {
+    .app {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        //width: 960px;
+        //height: 100vh;
+        height: 700px;
+        background: url("../../img/app/app-bg.jpg") no-repeat center;
+        background-size: cover;
+
+        .content {
+            position: relative;
+            margin: 0 auto;
+            height: 100%;
+            //transition: all 0.5s;
+
+            .frame {
+                width: 320px;
+                height: 567px;
+                background: url("../../img/app/frame_960.png") no-repeat bottom / 100%;
+                background-size: contain;
+                position: absolute;
+                bottom: 0;
+                left: 5px;
+            }
+
+            .downLoad {
+                width: 300px;
+                height: min-content;
+                height: 470px \9;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 320px;
+                top: 124px;
+                margin: auto;
+
+                .official {
+                    display: inline-block;
+                    width: 100%;
+                    color: #fff;
+                    font-family: "fzltth";
+                    font-size: 38px;
+                    letter-spacing: 5px;
+                    text-align: center;
+                }
+
+                .custom {
+                    font-family: "fzlttx";
+                    font-size: 20px;
+                    color: rgba(255, 255, 255, 0.7);
+                    letter-spacing: 3px;
+                    margin: 16px 0 44px;
+                    text-align: center;
+                }
+
+                .qrCode {
+                    width: 206px;
+                    height: 213px;
+                    background: url("../../img/app/qrCode.png") no-repeat center / 100%;
+                    background-size: cover;
+                    position: relative;
+                    margin: 0 auto;
+
+                    img {
+                        width: 140px;
+                        height: 140px;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        left: 0;
+                        bottom: 6px;
+                        margin: auto;
+                    }
+                }
+
+                .type {
+                    font-family: 'fzlttx';
+                    display: flex;
+                    display: inline-block \9;
+                    text-align: center \9;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 100%;
+                    margin-top: 35px;
+
+                    p {
+                        float: left \9;
+                        font-size: 15px;
+                        color: rgb(255, 255, 255);
+                        width: 130px;
+                        height: 50px;
+                        border: 1px solid #fff;
+                        border-radius: 10px;
+                        display: flex;
+                        display: block \9;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: auto;
+                        user-select: none;
+                        transition: all 0.1s;
+                        line-height: 50px \9;
+                        text-align: center;
+                        margin: 0 5px \9;
+
+                        &:hover {
+                            background: #fff;
+                            color: rgb(238, 63, 60);
+                        }
+
+                        .iosSign {
+                            display: inline-block;
+                            margin-bottom: 10px;
+                        }
+
+                        i {
+                            vertical-align: middle;
+                            font-size: 30px;
+                            margin-right: 5px;
+                            margin-right: 5px \9;
+                        }
+                    }
+                }
+            }
+
+            .forPhone {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<%- include('../../libs/html/header', {
+title: '小青智能音箱',
+description: '小青智能音箱',
+keywords: '小青智能音箱',
+plugin: ['http://common.8864.com/web/plugins/swiper/swiper.min.css'],
+private: ['../css/public.css', '../css/games.css']
+}) %>
+<%- include('./public/buy') %>
+<%- include('./public/nav', {
+current: 'game'
+}) %>
+
+<div class="main games">
+    <div class="content">
+        <div class="desc">
+            <p class="title">小青现已上线游戏一览</p>
+            <p class="sign"></p>
+            <p class="tips">小青小青，我要玩真心话大冒险</p>
+            <p class="tips">小青小青，开始猜国家</p>
+            <p class="tips">......</p>
+        </div>
+        <div class="games">
+            <ul class="items clearfix">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<%- include('./public/footer') %>
+<%- include('../../libs/html/footer', {
+plugin: ['../js/swiper.min.js'],
+private: ['../js/game.js', '../js/public.js', '../js/index.js'],
+statistics: ''
+}) %>

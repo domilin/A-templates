@@ -1,0 +1,118 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:18
+ * Description：gt 1280
+ */
+
+@media screen and (min-width: 1280px) {
+    .size {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        color: #455a64;
+
+        .content {
+            width: 1200px;
+            position: relative;
+            margin: 200px auto 0;
+            height: 100%;
+
+            .size-contain {
+                box-sizing: content-box;
+                margin: 0 auto;
+                width: 1100px;
+
+                .size-title {
+                    font-family: 'fzltth';
+                    font-size: 48px;
+                    text-align: center;
+                    width: 100%;
+                    letter-spacing: 2px;
+                    margin-top: 112px;
+                }
+
+                .size-box {
+                    border: 1px solid #cfd8dc;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    position: relative;
+
+                    h3 {
+                        font-size: 36px;
+                        position: absolute;
+                        top: 45px;
+                        left: 110px;
+                    }
+
+                    .p-detail {
+                        position: absolute;
+                        font-size: 18px;
+                        left: 460px;
+                        top: 46px;
+
+                        .p-item {
+                            font-family: 'fzlttx';
+                            margin-bottom: 18px;
+                            font-weight: bold;
+                        }
+
+                        .p-label {
+                            margin-right: 50px;
+                        }
+                    }
+
+                    &.box1 {
+                        height: 836px;
+                        margin-top: 100px;
+
+                        .size-img {
+                            width: 726px;
+                            height: 530px;
+                            background: url("../../img/size/img1_1920.png") no-repeat center / 100%;
+                            position: absolute;
+                            top: 50px;
+                            left: 314px;
+                        }
+
+                        .p-detail {
+                            top: unset;
+                            bottom: 30px;
+                        }
+                    }
+
+                    &.box2 {
+                        height: 258px;
+
+                        .p-detail {
+                            width: 505px;
+                        }
+
+                        .p-cont {
+                            float: right;
+                            display: inline-block;
+                            width: 328px;
+                        }
+                    }
+
+                    &.box3 {
+                        height: 294px;
+
+                        .p-detail {
+                            width: 310px;
+                        }
+
+                        .p-cont {
+                            float: right;
+                            display: inline-block;
+                            width: 180px;
+                        }
+                    }
+
+                    &.box4 {
+                        height: 186px;
+                    }
+                }
+            }
+        }
+    }
+}

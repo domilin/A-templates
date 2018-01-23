@@ -1,0 +1,330 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-16 10:54
+ * Description：nav
+ */
+
+.xq-nav {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: rgba(236, 236, 236, 0);
+    width: 100%;
+    height: 80px;
+    color: #fff;
+    font-size: 20px;
+    transition: background 1s ease 0s;
+
+    &.blue {
+        ul {
+            li {
+                a {
+                    color: #d1f4ff;
+                    font-size: 20px;
+                }
+
+                &.active a {
+                    color: #fff;
+                }
+            }
+        }
+
+        .buy-now {
+            background: #fff;
+            color: #00b0ff;
+        }
+    }
+
+    &.white {
+        ul {
+            li {
+                a {
+                    color: #78909c;
+                }
+
+                &.active a {
+                    color: #ef5350;
+                }
+            }
+        }
+
+        .buy-now {
+            background: #ef5350;
+            color: #fff;
+        }
+
+        .xq-nav-btn,
+        .xq-nav-btn:after,
+        .xq-nav-btn:before {
+            background: #ef5350;
+        }
+    }
+
+    // active放在blue,white之后。最终起作用样式，不管是blue active，还是active blue
+    &.active {
+        background: rgba(236, 236, 236, 0.9);
+
+        ul {
+            li {
+                a {
+                    color: #7d8f9b;
+                }
+
+                &.active a {
+                    color: #ef5350;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .buy-now {
+            background: #ef5350;
+            color: #fff;
+        }
+
+        .xq-nav-btn,
+        .xq-nav-btn:after,
+        .xq-nav-btn:before {
+            background: #ef5350;
+        }
+    }
+
+    .xq-nav-con {
+        margin: 0 auto;
+        max-width: 1260px;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    ul {
+        display: flex;
+
+        li {
+            padding: 0 60px;
+
+            &.xq-nav-first {
+                display: none;
+            }
+
+            a {
+                color: rgba(255, 255, 255, 0.5);
+                line-height: 80px;
+                transition: background 1s ease 0s;
+                font-size: 20px;
+            }
+
+            &.active a {
+                color: #fff;
+                transition: background 1s ease 0s;
+            }
+        }
+    }
+
+    .buy-now {
+        margin-right: 60px;
+        padding: 0 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        color: #ef5350;
+        transition: background 1s ease 0s;
+
+        .sys-m {
+            display: none;
+        }
+
+        .sys {
+            display: block;
+        }
+    }
+}
+
+/* 适配 */
+@media screen and (max-width: 1280px) and (min-width: 960px) {
+    .xq-nav {
+        .xq-nav-con {
+            width: 960px;
+        }
+
+        .buy-now {
+            margin-right: 40px;
+        }
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .xq-nav-link {
+        display: block;
+    }
+
+    .xq-nav-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .xq-nav-link {
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: none;
+        height: 100%;
+        width: 100%;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .xq-nav-link,
+    .xq-nav-link.active {
+        ul li {
+            a {
+                color: rgba(255, 255, 255, 0.6);
+            }
+
+            &.active a {
+                color: #fff;
+            }
+        }
+    }
+
+    .xq-nav-btn {
+        position: relative;
+        margin-left: 80px;
+    }
+
+    .xq-nav-btn,
+    .xq-nav-btn:after,
+    .xq-nav-btn:before {
+        background: #fff;
+        border-radius: 3px;
+        cursor: pointer;
+        display: block;
+        height: 6px;
+        width: 60px;
+        transition: background 1s ease 0s;
+    }
+
+    .xq-nav-btn:after,
+    .xq-nav-btn:before {
+        content: '';
+        position: absolute;
+    }
+
+    .xq-nav-btn:after {
+        top: -10px;
+    }
+
+    .xq-nav-btn:before {
+        bottom: -10px;
+    }
+
+    /* xq-nav */
+    .xq-nav {
+        ul {
+            margin: 0 160px 0 90px;
+            flex-direction: column;
+
+            li {
+                padding: 0;
+                border-bottom: 1px solid #847d7d;
+                line-height: 150px;
+
+                &.xq-nav-first {
+                    margin-top: 40px;
+                    border-bottom: none;
+                    display: block;
+
+                    span {
+                        display: block;
+                        height: 40px;
+                        width: 40px;
+
+                        img {
+                            display: block;
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .buy-now {
+            margin-right: 80px;
+            padding: 0 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .xq-nav-btn {
+        margin-left: rem(80);
+    }
+
+    .xq-nav-btn,
+    .xq-nav-btn:after,
+    .xq-nav-btn:before {
+        height: rem(6);
+        width: rem(60);
+    }
+
+    .xq-nav-btn:after {
+        top: rem(-10);
+    }
+
+    .xq-nav-btn:before {
+        bottom: rem(-10);
+    }
+
+    .xq-nav {
+        height: rem(100);
+
+        &.active {
+            ul {
+                li {
+                    a {
+                        color: rgba(255, 255, 255, 0.5);
+                    }
+
+                    &.active a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        ul {
+            margin: 0 rem(80) 0 rem(45);
+
+            li {
+                font-size: rem(30);
+                line-height: rem(150);
+
+                &.xq-nav-first {
+                    margin-top: rem(40);
+
+                    span {
+                        height: rem(40);
+                        width: rem(40);
+                    }
+                }
+            }
+        }
+
+        .buy-now {
+            margin-right: rem(80);
+            padding: rem(20) rem(40);
+            height: rem(60);
+            font-size: rem(24);
+            line-height: inherit;
+        }
+    }
+}

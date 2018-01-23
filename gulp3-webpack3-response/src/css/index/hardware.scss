@@ -1,0 +1,212 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-12 13:53
+ * Description：hardware
+ */
+@import '../../../libs/scss/rem';
+
+.ai,
+.designer,
+.game,
+.music,
+.design,
+.hardware {
+    background: url("../../img/hardware-bg-1280.jpg") no-repeat center;
+    height: 1100px;
+
+    .hardware-box {
+        margin: 0 auto;
+        padding: 0 40px;
+        max-width: 1560px;
+    }
+
+    .hardware-con {
+        float: right;
+        position: relative;
+        width: 390px;
+        text-align: center;
+        margin-top: 30px;
+        opacity: 0;
+    }
+
+    .icon-con {
+        margin: 160px auto 100px;
+        display: block;
+        height: 100px;
+        width: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h3 {
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 54px;
+
+        .symbol {
+            display: block;
+        }
+    }
+
+    h4 {
+        margin-top: 20px;
+        color: #7d8f9b;
+        font-size: 18px;
+        line-height: 28px;
+
+        .symbol-1280 {
+            display: block;
+        }
+    }
+
+    .cutline {
+        margin: 100px auto;
+        border-bottom: 1px solid #7d8f9b;
+        height: 1px;
+        width: 30px;
+    }
+
+    .hardware-parameter {
+        li {
+            float: left;
+            width: 50%;
+        }
+
+        h5 {
+            color: #be6d6b;
+            font-size: 68px;
+            font-weight: bold;
+
+            i {
+                font-size: 32px;
+                font-weight: normal;
+            }
+        }
+
+        p {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 24px;
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .hardware {
+        .hardware-box {
+            max-width: 880px;
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .hardware {
+        background: url("../../img/hardware-bg-960.jpg") no-repeat center;
+        height: 1500px;
+
+        .hardware-box {
+            max-width: 880px;
+        }
+
+        .hardware-con {
+            float: none;
+            margin: 0 auto;
+            width: 600px;
+        }
+
+        h3 {
+            .symbol {
+                display: none;
+            }
+        }
+
+        h4 {
+            .symbol-1280 {
+                display: none;
+            }
+        }
+
+        a.icon-con {
+            margin: 0 auto;
+            padding: 70px 0 40px;
+        }
+
+        .cutline {
+            margin: 80px auto 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .ai,
+    .designer,
+    .game,
+    .music,
+    .design,
+    .hardware {
+        background: url("../../img/hardware-bg-640.jpg") no-repeat center;
+        background-size: cover;
+        height: rem(1500);
+
+        .hardware-box {
+            padding: 0;
+            max-width: rem(500);
+        }
+
+        .hardware-con {
+            width: 100%;
+
+            .symbol-1280 {
+                display: none;
+            }
+        }
+
+        .icon-con {
+            margin: rem(80) auto rem(40);
+            height: rem(70);
+            width: rem(70);
+        }
+
+        h3 {
+            font-size: rem(36);
+            line-height: rem(54);
+        }
+
+        h4 {
+            margin-top: rem(20);
+            font-size: rem(24);
+            line-height: rem(36);
+
+            .symbol-1280 {
+                display: block;
+            }
+
+            .symbol-640 {
+                display: block;
+            }
+        }
+
+        .cutline {
+            margin: rem(70) auto rem(40);
+            width: rem(30);
+        }
+
+        .hardware-parameter {
+            h5 {
+                font-size: rem(48);
+
+                i {
+                    font-size: rem(36);
+                }
+            }
+
+            p {
+                margin-top: rem(25);
+                font-size: rem(20);
+            }
+        }
+    }
+}

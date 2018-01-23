@@ -1,0 +1,110 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:24
+ * Description：gt320
+ */
+@import "../../../libs/scss/rem";
+
+@media screen and (max-width: 639px) {
+    .size {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        color: #455a64;
+
+        .content {
+            width: rem(485);
+            position: relative;
+            margin: rem(150) auto rem(50);
+            height: 100%;
+
+            .size-contain {
+                width: rem(485);
+                box-sizing: content-box;
+                margin: 0 auto;
+
+                .size-title {
+                    font-family: 'fzltth';
+                    font-size: rem(32);
+                    text-align: center;
+                    width: 100%;
+                    letter-spacing: rem(5);
+                    margin-top: rem(70);
+                }
+
+                .size-box {
+                    margin: 0 auto rem(20);
+                    width: 100%;
+                    border: 1px solid #cfd8dc;
+                    border-radius: rem(10);
+                    position: relative;
+
+                    h3 {
+                        text-align: center;
+                        font-size: rem(28);
+                        position: absolute;
+                        top: rem(45);
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                    }
+
+                    .p-detail {
+                        position: absolute;
+                        font-size: rem(24);
+                        left: rem(20);
+                        top: rem(135);
+
+                        .p-item {
+                            font-family: 'fzlttx';
+                            margin-bottom: rem(18);
+                            font-weight: bold;
+                        }
+
+                        .p-label {
+                            margin-right: rem(2);
+                        }
+
+                        .inch {
+                            display: block;
+                            margin-top: rem(18);
+                        }
+                    }
+
+                    &.box1 {
+                        height: rem(720);
+                        margin-top: rem(66);
+
+                        .size-img {
+                            width: rem(340);
+                            height: rem(267);
+                            background: url("../../img/size/img1_640.png") no-repeat center / 100%;
+                            position: absolute;
+                            top: rem(136);
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                        }
+
+                        .p-detail {
+                            top: unset;
+                            bottom: rem(0);
+                        }
+                    }
+
+                    &.box2 {
+                        height: rem(445);
+                    }
+
+                    &.box3 {
+                        height: rem(406);
+                    }
+
+                    &.box4 {
+                        height: rem(275);
+                    }
+                }
+            }
+        }
+    }
+}

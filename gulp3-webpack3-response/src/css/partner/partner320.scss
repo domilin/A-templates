@@ -1,0 +1,487 @@
+/**
+ * Author：zhoushuanglong
+ * Time：2018-01-08 19:24
+ * Description：gt320
+ */
+@import "../../../libs/scss/rem";
+
+@media screen and (max-width: 639px) {
+    .partner {
+        transition: all 0.5s;
+        position: relative;
+        width: 100%;
+        //height: 100vh;
+
+        .content {
+            width: 100%;
+            position: relative;
+            height: 100%;
+            font-size: 0;
+            //transition: all 0.5s;
+
+            .title {
+                font-family: fzlttx;
+                font-weight: bolder;
+                font-size: rem(30);
+                color: #d04f51;
+                margin: rem(100) auto 0;
+                letter-spacing: rem(5);
+                text-align: center;
+            }
+
+            .title_en {
+                width: rem(497);
+                height: rem(42);
+            }
+
+            .page1 {
+                background: url("../../img/partner/page1_640_bg.jpg") no-repeat center / 100%;
+                background-size: cover;
+                width: 100%;
+                height: rem(960);
+                overflow: hidden;
+
+                .contact {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    color: #fff;
+                    font-family: fzlttx;
+
+                    .agent {
+                        text-align: center;
+                        letter-spacing: rem(4);
+                        font-weight: bold;
+                        font-size: rem(40);
+                        position: absolute;
+                        top: rem(153);
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                    }
+
+                    .info_640 {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        position: absolute;
+                        bottom: 0;
+                        text-align: center;
+                        color: rgba(255, 255, 255, 0.9);
+
+                        .telSection_640 {
+                            font-size: rem(26);
+                            position: absolute;
+                            bottom: rem(88);
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+
+                            .tel_img {
+                                display: inline-block;
+                                width: rem(21);
+                                height: rem(24);
+                                margin-right: rem(5);
+                                vertical-align: middle;
+                                background: url("../../img/partner/tel_img.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        .mailSection_640 {
+                            font-size: rem(20);
+                            position: absolute;
+                            bottom: rem(48);
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+
+                            .mail_img {
+                                display: inline-block;
+                                width: rem(18);
+                                height: rem(15);
+                                margin-right: rem(5);
+                                vertical-align: middle;
+                                background: url("../../img/partner/email_img.png") no-repeat center / 100%;
+                            }
+                        }
+                    }
+
+                    .info {
+                        display: none;
+                    }
+
+                    .img {
+                        display: none;
+                    }
+                }
+            }
+
+            .page2 {
+                overflow: hidden;
+                height: rem(665);
+                width: 100%;
+                position: relative;
+                text-align: center;
+
+                .title_en {
+                    background: url("../../img/partner/recruit.png") no-repeat center / 100%;
+                    background-size: cover;
+                    margin: rem(29) auto rem(42);
+                }
+
+                .desc {
+                    padding: rem(40);
+                    font-size: rem(22);
+                    line-height: rem(40);
+                    color: #333;
+                    font-family: fzlttx;
+                    font-weight: bolder;
+
+                    .inch {
+                        display: block;
+                    }
+                }
+            }
+
+            .page3 {
+                height: rem(1052);
+                text-align: center;
+                background: #2e2c38;
+                width: 100%;
+                overflow: hidden;
+
+                .advantage {
+                    position: relative;
+                    width: 100%;
+
+                    .title {
+                        color: #fff;
+                    }
+
+                    .title_en {
+                        background: url("../../img/partner/advantage.png") no-repeat center / 100%;
+                        background-size: cover;
+                        margin: rem(29) auto rem(40);
+                    }
+
+                    .items {
+                        width: 100%;
+                        text-align: center;
+
+                        .item {
+                            vertical-align: top;
+                            width: rem(280);
+                            display: inline-block;
+                            height: rem(370);
+                            border: none;
+
+                            &.item1 {
+                                border-right: 1px solid rgba(111, 111, 111, 0.1);
+                                border-bottom: 1px solid rgba(111, 111, 111, 0.1);
+                            }
+
+                            &.item2 {
+                                border-bottom: 1px solid rgba(111, 111, 111, 0.1);
+                            }
+
+                            &.item4 {
+                                border-left: 1px solid rgba(111, 111, 111, 0.1);
+                            }
+
+                            .item3 {
+                                border-right: 1px solid rgba(111, 111, 111, 0.1);
+                            }
+
+                            img {
+                                margin: rem(38) 0 rem(41);
+                            }
+                        }
+
+                        .item_title {
+                            font-size: rem(26);
+                            color: rgba(255, 255, 255, 0.9);
+                            letter-spacing: rem(2);
+                            margin-bottom: rem(20);
+                        }
+
+                        .item_desc {
+                            line-height: rem(40);
+                            font-size: rem(22);
+                            color: rgba(255, 255, 255, 0.5);
+                            padding: 0 rem(30) 0 rem(50);
+                        }
+                    }
+                }
+            }
+
+            .page4 {
+                height: rem(2129);
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+
+                .title_en {
+                    background: url("../../img/partner/support.png") no-repeat center / 100%;
+                    background-size: cover;
+                    margin: rem(29) auto rem(60);
+                }
+
+                .items {
+                    text-align: center;
+
+                    .item {
+                        display: inline-block;
+                        width: rem(269);
+                        height: rem(307);
+                        border: 1px solid #e4e3e3;
+                        border-radius: 4px;
+                        position: relative;
+                        font-family: fzlttx;
+                        margin: 0 rem(10) rem(20);
+
+                        &:nth-of-type(7),
+                        &:nth-of-type(8) {
+                            height: rem(417);
+                        }
+
+                        &:nth-of-type(9) {
+                            width: rem(560);
+                            height: rem(307);
+
+                            .item_desc {
+                                width: rem(480);
+                            }
+                        }
+
+                        &:nth-of-type(1) {
+                            .img {
+                                width: rem(61);
+                                height: rem(63);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_1_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(2) {
+                            .img {
+                                width: rem(71);
+                                height: rem(61);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_2_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(3) {
+                            .img {
+                                width: rem(61);
+                                height: rem(63);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_3_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(4) {
+                            .img {
+                                width: rem(66);
+                                height: rem(62);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_4_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(5) {
+                            .img {
+                                width: rem(87);
+                                height: rem(62);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_5_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(6) {
+                            .img {
+                                width: rem(52);
+                                height: rem(62);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_6_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(7) {
+                            .img {
+                                width: rem(56);
+                                height: rem(64);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_7_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(8) {
+                            .img {
+                                width: rem(61);
+                                height: rem(61);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_8_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        &:nth-of-type(9) {
+                            .img {
+                                width: rem(72);
+                                height: rem(62);
+                                position: absolute;
+                                top: rem(41);
+                                margin: auto;
+                                left: 0;
+                                right: 0;
+                                background: url("../../img/partner/s_9_640.png") no-repeat center / 100%;
+                            }
+                        }
+
+                        .item_title {
+                            position: absolute;
+                            top: rem(134);
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            font-size: rem(26);
+                            font-weight: bolder;
+                        }
+
+                        .item_desc {
+                            position: absolute;
+                            margin: auto;
+                            top: rem(180);
+                            left: 0;
+                            right: 0;
+                            width: rem(209);
+                            font-size: rem(20);
+                            color: #666;
+                            font-weight: bolder;
+                            line-height: rem(35);
+                        }
+                    }
+                }
+            }
+
+            .page5 {
+                overflow: hidden;
+                height: rem(1124);
+                text-align: center;
+                background: #d04f51;
+                font-size: rem(30);
+                width: 100%;
+
+                .method {
+                    position: relative;
+                    margin: 0 auto;
+
+                    .title {
+                        color: #fff;
+                    }
+
+                    .title_en {
+                        background: url("../../img/partner/join.png") no-repeat center / 100%;
+                        background-size: cover;
+                        margin: rem(29) auto rem(60);
+                    }
+
+                    .phcolor {
+                        color: #999;
+                    }
+
+                    .form {
+                        position: relative;
+                        text-align: center;
+
+                        .hink {
+                            position: absolute;
+                            width: 300px;
+                            height: 50px;
+                            left: 50%;
+                            margin-left: -150px;
+                            border-radius: 5px;
+                            background: #eee;
+                            font-size: 16px;
+                            line-height: 50px;
+                            text-align: center;
+                            top: 100px;
+                            color: #7d8f9b;
+                            display: none;
+                        }
+
+                        input,
+                        textarea {
+                            display: inline-block;
+                            border: none;
+                            outline: none;
+                            font-size: rem(24);
+                            border-radius: rem(4);
+                        }
+
+                        input {
+                            text-indent: rem(15);
+                            width: rem(560);
+                            height: rem(60);
+                            margin: 0 auto rem(30);
+                        }
+
+                        .msg {
+                            padding: rem(10) rem(15);
+                            resize: none;
+                            width: rem(530);
+                            height: rem(260);
+                            border: none;
+                            line-height: rem(30);
+                        }
+                    }
+
+                    .submit {
+                        outline: none;
+                        width: rem(196);
+                        height: rem(60);
+                        padding: 0;
+                        text-indent: 0;
+                        border: 1px solid #fff;
+                        font-size: rem(28);
+                        color: #fff;
+                        background: transparent;
+                        margin-top: rem(64);
+                    }
+                }
+            }
+        }
+    }
+}
